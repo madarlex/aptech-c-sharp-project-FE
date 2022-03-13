@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  templateUrl: './prepaid.component.html',
+  templateUrl: './pay.component.html',
 })
-export class PrepaidComponent implements OnInit {
+export class PayComponent implements OnInit {
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }

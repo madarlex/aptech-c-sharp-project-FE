@@ -10,13 +10,31 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
 import { MainComponent } from './main.component';
 import { PrepaidComponent } from './components/prepaid/prepaid.component';
+import { PostPaidComponent } from './components/postpaid/postpaid.component';
+import { AboutUsComponent } from './components/aboutus/aboutus.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
+import { SitemapComponent } from './components/sitemap/sitemap.component';
+import { LoginComponent } from './components/account/login.component';
+import { RegisterComponent } from './components/account/register.component';
+import { PayComponent } from './components/pay/pay.component';
+import { EditComponent } from './components/account/edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MainComponent,
-    PrepaidComponent
+    PrepaidComponent,
+    PostPaidComponent,
+    AboutUsComponent,
+    ContactComponent,
+    FeedbackComponent,
+    SitemapComponent,
+    LoginComponent,
+    RegisterComponent,
+    PayComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

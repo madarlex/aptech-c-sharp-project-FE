@@ -1,0 +1,89 @@
+<div class="agileits-inner-banner">
+
+</div>
+<div class="w3layouts-breadcrumbs text-center">
+    <div class="container">
+        <span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> /
+            <span>Pay</span></span>
+    </div>
+</div>
+<!-- //breadcrumbs -->
+<!-- Pay -->
+<div class="agile-pay w3layouts-content">
+    <div class="container">
+        <h3 class="w3-head">Payment</h3>
+        <!--Horizontal Tab-->
+        <div id="parentHorizontalTab">
+            <ul class="resp-tabs-list hor_1">
+                <li style="padding-left: 0px;">Paypal Account</li>
+            </ul>
+            <div class="resp-tabs-container hor_1">
+                <div>
+                    <div id="tab4" class="tab-grid" style="display: block;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="pp-img" src="assets/images/paypal.png" alt="Image Alternative text"
+                                    title="Image Title">
+                                <p>Important: You will be redirected to PayPal's website to securely complete your
+                                    payment.</p><a class="btn btn-primary">Checkout via Paypal</a>
+                            </div>
+                            <div class="col-md-6">
+                                <form class="cc-form">
+                                    <div class="clearfix">
+                                        <div class="form-group form-group-cc-number">
+                                            <label>Card Number</label>
+                                            <input class="form-control" placeholder="xxxx xxxx xxxx xxxx"
+                                                type="text"><span class="cc-card-icon"></span>
+                                        </div>
+                                        <div class="form-group form-group-cc-cvc">
+                                            <label>CVV</label>
+                                            <input class="form-control" placeholder="xxxx" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix">
+                                        <div class="form-group form-group-cc-name">
+                                            <label>Card Holder Name</label>
+                                            <input class="form-control" type="text">
+                                        </div>
+                                        <div class="form-group form-group-cc-date">
+                                            <label>Valid Thru</label>
+                                            <input class="form-control" placeholder="mm/yy" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="checkbox checkbox-small">
+                                        <label>
+                                            <input class="i-check" type="checkbox" checked="">Add to My Cards</label>
+                                    </div>
+                                    <input class="btn btn-primary submit" type="submit" class="submit"
+                                        value="Proceed Payment">
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Plug-in Initialisation-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Horizontal Tab
+        $('#parentHorizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion
+            width: 'auto', //auto or any width like 600px
+            fit: true, // 100% fit in a container
+            tabidentify: 'hor_1', // The tab groups identifier
+            activate: function (event) { // Callback function if tab is switched
+                var $tab = $(this);
+                var $info = $('#nested-tabInfo');
+                var $name = $('span', $info);
+                $name.text($tab.text());
+                $info.show();
+            }
+        });
+    });
+</script>

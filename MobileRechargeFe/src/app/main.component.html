@@ -1,4 +1,62 @@
 <header>
+    <style>
+        #cart-wp {
+            position: relative;
+            cursor: pointer;
+        }
+
+        #cart-wp,
+        #cart-respon-wp {
+            position: relative;
+            display: block;
+            color: #fff;
+            padding: 20px 0px 20px 30px;
+        }
+
+        #cart-wp i,
+        #cart-respon-wp i {
+            font-size: 20px;
+            width: 37px;
+            height: 37px;
+            line-height: 33px;
+            text-align: center;
+            border: 2px solid #fff;
+            border-radius: 50%;
+        }
+
+        #cart-wp #num,
+        #cart-respon-wp #num {
+            position: absolute;
+            top: 10px;
+            right: -10px;
+            font-size: 16px;
+            font-family: 'Roboto Medium';
+        }
+
+        #cart-wp #dropdown {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 90px;
+            right: 0;
+            width: 250px;
+            min-height: 250px;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #e1e1e1;
+            transition: all .3s ease;
+            -moz-transition: all .3s ease;
+            -webkit-transition: all .3s ease;
+            -o-transition: all .3s ease;
+            z-index: 1000;
+        }
+
+        #cart-wp:hover #dropdown {
+            top: 70px;
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
     <div class="container">
         <!--logo-->
         <div class="logo">
@@ -20,13 +78,35 @@
                 <li><a [routerLink]="['/sitemap']">Site Map</a></li>
             </ul>
         </div>
+        <div *ngIf="login_status;else other_content" style="float: right;">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true" style="margin-top: 14px;
+            outline: none;
+            background: none;
+            color: yellow;
+            border: none;
+            margin-left: 30px;
+            font-size: 17px;">
+                    {{name}}
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="left: 23%;">
+                    <li><a [routerLink]="['/edit']">Edit Account</a></li>
+                    <li><a (click)="onLogout()">Log Out</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <ng-template #other_content>
         <div class="w3layouts-login" style="display: flex;">
             <a [routerLink]="['/login']"><i class="glyphicon glyphicon-user">
                 </i>Login/</a>
             <a [routerLink]="['/register']">Register</a>
         </div>
-        <div class="clearfix"></div>
-    </div>
+    </ng-template>
+
 </header>
 
 <router-outlet></router-outlet>

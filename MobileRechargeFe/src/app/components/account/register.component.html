@@ -19,21 +19,45 @@
         <div class="col-md-6">
             <div class="tab-content">
                 <div class="tab-pane active" id="Registration">
-                    <form class="form-horizontal" action="#" method="get">
+                    <form class="form-horizontal" method="post" [formGroup]="addAccountForm" (ngSubmit)="create()">
                         <div class="form-group">
                             <label for="email" class="col-sm-2 control-label">
                                 Name</label>
                             <div class="col-sm-10">
                                 <div class="row">
                                     <div class="col-md-3 col-sm-3 col-xs-3">
-                                        <select class="form-control">
-                                            <option>Mr.</option>
-                                            <option>Ms.</option>
-                                            <option>Mrs.</option>
+                                        <select class="form-control" formControlName="gender">
+                                            <option value="1">Mr.</option>
+                                            <option value="0">Ms.</option>
                                         </select>
                                     </div>
                                     <div class="col-md-9 col-sm-9 col-xs-9">
-                                        <input type="text" class="form-control" placeholder="Name" required="required">
+                                        <input type="text" class="form-control" placeholder="Name"
+                                            formControlName="name">
+                                    </div>
+                                </div>
+                                <div *ngIf="addAccountForm.get('name').touched">
+                                    <div *ngIf="addAccountForm.hasError('required', ['name'])">
+                                        <small class="text-danger"> This field is required.</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile" class="col-sm-2 control-label">
+                                Phone</label>
+                            <div class="col-sm-10">
+                                <input type="tel" class="form-control" id="mobile" placeholder="Phone"
+                                    required="required" formControlName="phone">
+                                <div *ngIf="addAccountForm.get('phone').touched">
+                                    <div *ngIf="addAccountForm.hasError('required', ['phone'])">
+                                        <small class="text-danger"> This field is required.</small>
+                                    </div>
+                                    <div *ngIf="addAccountForm.hasError('minlength', ['phone'])">
+                                        <small class="text-danger"> Please enter at least 9 characters.</small>
+                                    </div>
+                                    <div *ngIf="addAccountForm.hasError('maxlength', ['phone'])">
+                                        <small class="text-danger"> Please enter no more than 10 characters.</small>
                                     </div>
                                 </div>
                             </div>
@@ -42,21 +66,60 @@
                             <label for="email" class="col-sm-2 control-label">
                                 Email</label>
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="email" placeholder="Email" required="required">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="mobile" class="col-sm-2 control-label">
-                                Mobile</label>
-                            <div class="col-sm-10">
-                                <input type="tel" class="form-control" id="mobile" placeholder="Mobile" required="required">
+                                <input type="email" class="form-control" id="email" placeholder="Email"
+                                    required="required" formControlName="email">
+                                <div *ngIf="addAccountForm.get('email').touched">
+                                    <div *ngIf="addAccountForm.hasError('required', ['email'])">
+                                        <small class="text-danger"> This field is required.</small>
+                                    </div>
+                                    <div *ngIf="addAccountForm.hasError('pattern', ['email'])">
+                                        <small class="text-danger"> Please enter a valid email address.</small>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="password" class="col-sm-2 control-label">
                                 Password</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="password" placeholder="Password" required="required">
+                                <input type="password" class="form-control" id="password" placeholder="Password"
+                                    required="required" formControlName="password">
+                                <div *ngIf="addAccountForm.get('password').touched">
+                                    <div *ngIf="addAccountForm.hasError('required', ['password'])">
+                                        <small class="text-danger"> This field is required.</small>
+                                    </div>
+                                    <div *ngIf="addAccountForm.hasError('pattern', ['password'])">
+                                        <small class="text-danger"> Your password does not meet complexity
+                                            requirements.</small>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="indentity" class="col-sm-2 control-label">
+                                Identity Card</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="indentity" placeholder="Identity Card"
+                                    required="required" formControlName="identityCard">
+                                <div *ngIf="addAccountForm.get('identityCard').touched">
+                                    <div *ngIf="addAccountForm.hasError('required', ['identityCard'])">
+                                        <small class="text-danger"> This field is required.</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="col-sm-2 control-label">
+                                Address</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" name="address" id="address" placeholder="address"
+                                    cols="30" rows="10" formControlName="address"></textarea>
+                                <div *ngIf="addAccountForm.get('address').touched">
+                                    <div *ngIf="addAccountForm.hasError('required', ['address'])">
+                                        <small class="text-danger"> This field is required.</small>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row">

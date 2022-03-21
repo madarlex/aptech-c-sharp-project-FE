@@ -1,0 +1,43 @@
+<!-- innerbanner -->
+<div class="agileits-inner-banner">
+
+</div>
+<!-- //innerbanner -->
+
+<!-- breadcrumbs -->
+<div class="w3layouts-breadcrumbs text-center">
+	<div class="container">
+		<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> /
+			<span>Forgot Password</span></span>
+	</div>
+</div>
+<!-- //breadcrumbs -->
+<!-- Feedback -->
+<div class="w3ls-feedback w3layouts-content">
+	<div class="container">
+		<h3 class="w3-head">Forgot Password</h3>
+		<div class="feed-back">
+			<p>Please make sure the email you provided is correct, we will send a confirmation code via your email</p>
+
+			<div class="feed-back-form">
+				<form action="#" method="get">
+					<span>Email</span>
+					<input type="text" placeholder="Email" name="email" required="required" [(ngModel)]="email" />
+					<input type="text" placeholder="Token" name="token" required="required" [(ngModel)]="token" />
+					<input type="password" class="form-control" placeholder="New Password" name="password"
+						required="required" [(ngModel)]="password" style="    width: 50%;
+					display: BLOCK;
+					margin: 10px 0 25px 0;
+					padding: 7px;
+					font-family: 'Open Sans', sans-serif;
+					font-size: 14px;
+					font-weight: 400;
+					color: #A8A8A8;
+					outline: none;
+					border: 1px solid #D3D3D3;" />
+					<input type="submit" value="Submit" (click)="changePass()">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

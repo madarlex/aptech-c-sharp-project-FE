@@ -1,0 +1,33 @@
+	<!-- innerbanner -->
+	<div class="agileits-inner-banner">
+
+	</div>
+	<!-- //innerbanner -->
+
+	<!-- breadcrumbs -->
+	<div class="w3layouts-breadcrumbs text-center">
+		<div class="container">
+			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> /
+				<span>Active Account</span></span>
+		</div>
+	</div>
+	<!-- //breadcrumbs -->
+	<!-- Feedback -->
+	<div class="w3ls-feedback w3layouts-content">
+		<div class="container">
+			<h3 class="w3-head">Active Account</h3>
+			<div class="feed-back">
+				<h3>Active account information</h3>
+				<p>Please make sure that the code you received in the Email is correct</p>
+
+				<div class="feed-back-form">
+					<form action="#" method="get">
+						<span>Information</span>
+						<input type="text" placeholder="Email" name="email" required="required" [(ngModel)]="email"/>
+						<input type="text" placeholder="Token" name="token" required="required" [(ngModel)]="token" />
+						<input type="submit" value="Active" (click)="active()">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>

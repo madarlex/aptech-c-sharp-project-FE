@@ -1,10 +1,60 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Account } from 'src/app/entities/account.entity';
+import { Result } from 'src/app/entities/result.entity';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   templateUrl: './edit.component.html',
 })
 export class EditComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  editAccountForm: FormGroup;
+  account: Account;
+  constructor(
+    private accountService: AccountService,
+    private formBuilder: FormBuilder,
+  ) { }
+  ngOnInit() {
+    var accountId = localStorage.getItem('accountId');
+    this.accountService.edit(parseInt(accountId)).then(
+      res => {
+        this.account = res as Account;
+        console.log(this.account.phone)
+        this.editAccountForm = this.formBuilder.group({
+          id: this.account.id,
+          name:[this.account.name, [Validators.required]],
+          address: [this.account.address, [Validators.required]],
+          phone: [this.account.phone, [Validators.required, Validators.minLength(9), Validators.maxLength(10)]],
+          email: [this.account.email, [Validators.required, Validators.pattern(/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/)]],
+          gender: [this.account.gender, [Validators.required]],
+          identityCard: this.account.identityCard,
+          status: 1,
+          accountTypeId: 1,
+          dob: "11/08/2010",
+          password: ['', [Validators.required, Validators.pattern('^((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})$')]]
+        });
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+  save() {
+    var account: Account = this.editAccountForm.value;
+    console.log(account);
+    this.accountService.update(account).then(
+      res => {
+        var re: Result = res as Result;
+        if (re.result) {
+          alert("Success")
+        } else {
+          alert("Failed")
+        }
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }

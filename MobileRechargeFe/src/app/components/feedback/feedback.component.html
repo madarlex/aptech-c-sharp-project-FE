@@ -15,18 +15,18 @@
             </p>
 
             <div class="feed-back-form">
-                <form autocomplete="off" #myForm="ngForm" (ngSubmit)="myForm.form.valid && submit(myForm)">
+                 <form autocomplete="off" #myForm="ngForm" (ngSubmit)="myForm.form.valid && submit(myForm)">
                     <span>Customer Feedback</span>
                     <input type="hidden" name="id" [value]="feedbackService.feedbackData.id">
-                    <input type="text" placeholder="Your Name" name="name" #name="ngModel" [(ngModel)] ="feedbackService.feedbackData.name" required />
+                    <input type="text" placeholder="Your Name" name="name" #name="ngModel" [(ngModel)] ="feedbackService.feedbackData.name" required minlength="5" maxlength="30"/>
                     <div *ngIf="name.invalid && (name.touched || name.dirty)">
                         <p class="text-danger">Please enter your name (*)</p>
                     </div>
-                    <input type="email" placeholder="Email" name="email" #email="ngModel" [(ngModel)] ="feedbackService.feedbackData.email" required/>
-                    <div *ngIf="email.invalid && (email.touched || email.dirty)">
+                    <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Email" name="email" #email="ngModel"  [(ngModel)] ="feedbackService.feedbackData.email" required/>
+                    <div *ngIf="email.invalid && (email.touched || email.dirty)">                     
                         <p class="text-danger">Please enter your email (*)</p>
                     </div>
-                    <input type="tel" placeholder="Phone No" name="phone" #phone="ngModel" [(ngModel)] ="feedbackService.feedbackData.phone" required minlength="10" maxlength="10"/>
+                    <input type="tel" pattern="\d{10}" placeholder="Phone No" name="phone" #phone="ngModel" [(ngModel)] ="feedbackService.feedbackData.phone" required minlength="10" maxlength="10"/>
                     <div *ngIf="phone.invalid && (phone.touched || phone.dirty)">
                         <p class="text-danger">Please enter your phone (*)</p>
                     </div>
@@ -37,7 +37,8 @@
                         <p class="text-danger">Please enter your description (*)</p>
                     </div>
                     <input type="submit" value="Send Feedback">
-                </form>
+                </form> 
+    
             </div>
         </div>
     </div>

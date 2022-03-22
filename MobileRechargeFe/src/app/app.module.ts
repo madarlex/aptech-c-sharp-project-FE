@@ -19,6 +19,7 @@ import { LoginComponent } from './components/account/login.component';
 import { RegisterComponent } from './components/account/register.component';
 import { PayComponent } from './components/pay/pay.component';
 import { EditComponent } from './components/account/edit.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { EditComponent } from './components/account/edit.component';
     AdminModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [MainComponent]

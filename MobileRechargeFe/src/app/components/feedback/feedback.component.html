@@ -11,21 +11,31 @@
         <h3 class="w3-head">Feedback</h3>
         <div class="feed-back">
             <h3>Tell us what you think of us</h3>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when
-                looking at its layout. The point of using Lorem Ipsum Lorem Ipsum is simply dummy text of the printing
-                and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+            <p>We are constantly striving to make our products & services better. In case of a concern or feedback, please let us know.
             </p>
 
             <div class="feed-back-form">
-                <form action="#" method="get">
-                    <span>User Details</span>
-                    <input type="text" placeholder="First Name" name="firstname" required="required" />
-                    <input type="text" placeholder="Last Name" name="lastname" required="required" />
-                    <input type="email" placeholder="Email" name="email" required="required" />
-                    <input type="tel" placeholder="Phone No" name="phoneno" required="required" />
+                <form autocomplete="off" #myForm="ngForm" (ngSubmit)="myForm.form.valid && submit(myForm)">
+                    <span>Customer Feedback</span>
+                    <input type="hidden" name="id" [value]="feedbackService.feedbackData.id">
+                    <input type="text" placeholder="Your Name" name="name" #name="ngModel" [(ngModel)] ="feedbackService.feedbackData.name" required />
+                    <div *ngIf="name.invalid && (name.touched || name.dirty)">
+                        <p class="text-danger">Please enter your name (*)</p>
+                    </div>
+                    <input type="email" placeholder="Email" name="email" #email="ngModel" [(ngModel)] ="feedbackService.feedbackData.email" required/>
+                    <div *ngIf="email.invalid && (email.touched || email.dirty)">
+                        <p class="text-danger">Please enter your email (*)</p>
+                    </div>
+                    <input type="tel" placeholder="Phone No" name="phone" #phone="ngModel" [(ngModel)] ="feedbackService.feedbackData.phone" required minlength="10" maxlength="10"/>
+                    <div *ngIf="phone.invalid && (phone.touched || phone.dirty)">
+                        <p class="text-danger">Please enter your phone (*)</p>
+                    </div>
                     <span>Is there anything you would like to tell us?</span>
                     <textarea onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}"
-                        required="">Message...</textarea>
+                    name="description" #description="ngModel" [(ngModel)] ="feedbackService.feedbackData.description" required>Message...</textarea>
+                    <div *ngIf="description.invalid && (description.touched || description.dirty)">
+                        <p class="text-danger">Please enter your description (*)</p>
+                    </div>
                     <input type="submit" value="Send Feedback">
                 </form>
             </div>

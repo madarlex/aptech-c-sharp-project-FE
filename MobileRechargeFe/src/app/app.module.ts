@@ -25,6 +25,9 @@ import { ActiveComponent } from './components/account/active.component';
 import { SuccessComponent } from './components/account/success.component';
 import { ForgotComponent } from './components/account/forgot.component';
 import { ChangePassComponent } from './components/account/changepass.component';
+import { RechargeService } from './services/recharge.service';
+import { CodeConfirmComponent } from './components/codeConfirm/codeConfirm.component';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import { ChangePassComponent } from './components/account/changepass.component';
     ActiveComponent,
     SuccessComponent,
     ForgotComponent,
-    ChangePassComponent
+    ChangePassComponent,
+    CodeConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +64,11 @@ import { ChangePassComponent } from './components/account/changepass.component';
   providers: [
     AccountService
   ],
+
+  providers: [
+    RechargeService
+  ],
+
   bootstrap: [MainComponent]
 })
 export class AppModule { }

@@ -1,38 +1,151 @@
-	<!-- innerbanner -->
-	<div class="agileits-inner-banner">
+<!-- innerbanner -->
+<div class="agileits-inner-banner">
 
+</div>
+<!-- //innerbanner -->
+
+<!-- breadcrumbs -->
+<div class="w3layouts-breadcrumbs text-center">
+	<div class="container">
+		<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> /
+			<span>Edit Account</span></span>
 	</div>
-	<!-- //innerbanner -->
+</div>
+<!-- //breadcrumbs -->
+<!-- Feedback -->
+<div class="w3ls-feedback w3layouts-content">
+	<div class="container">
+		<h3 class="w3-head">Edit Account</h3>
+		<div class="feed-back">
+			<h3>Update account information</h3>
+			<p>Please make sure the information you provide is correct, we will keep your personal information
+				confidential</p>
 
-	<!-- breadcrumbs -->
-	<div class="w3layouts-breadcrumbs text-center">
-		<div class="container">
-			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> /
-				<span>Edit Account</span></span>
-		</div>
-	</div>
-	<!-- //breadcrumbs -->
-	<!-- Feedback -->
-	<div class="w3ls-feedback w3layouts-content">
-		<div class="container">
-			<h3 class="w3-head">Edit Account</h3>
-			<div class="feed-back">
-				<h3>Update account information</h3>
-				<p>Please make sure the information you provide is correct, we will keep your personal information confidential</p>
+			<div class="col-md-6">
+				<div class="tab-content">
+					<div class="tab-pane active" id="Registration">
+						<form class="form-horizontal" method="post" [formGroup]="editAccountForm" (ngSubmit)="save()">
+							<div class="form-group">
+								<label for="email" class="col-sm-2 control-label">
+									Name</label>
+								<div class="col-sm-10">
+									<div class="row">
+										<div class="col-md-3 col-sm-3 col-xs-3">
+											<select class="form-control" formControlName="gender">
+												<option value="1">Mr.</option>
+												<option value="0">Ms.</option>
+											</select>
+										</div>
+										<div class="col-md-9 col-sm-9 col-xs-9">
+											<input type="text" class="form-control" placeholder="Name"
+												formControlName="name">
+											<div *ngIf="editAccountForm.get('name').touched">
+												<div *ngIf="editAccountForm.hasError('required', ['name'])">
+													<small class="text-danger"> This field is required.</small>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="mobile" class="col-sm-2 control-label">
+									Phone</label>
+								<div class="col-sm-10">
+									<input type="tel" class="form-control" id="mobile" placeholder="Phone"
+										required="required" formControlName="phone">
+									<div *ngIf="editAccountForm.get('phone').touched">
+										<div *ngIf="editAccountForm.hasError('required', ['phone'])">
+											<small class="text-danger"> This field is required.</small>
+										</div>
+										<div *ngIf="editAccountForm.hasError('minlength', ['phone'])">
+											<small class="text-danger"> Please enter at least 9 characters.</small>
+										</div>
+										<div *ngIf="editAccountForm.hasError('maxlength', ['phone'])">
+											<small class="text-danger"> Please enter no more than 10 characters.</small>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email" class="col-sm-2 control-label">
+									Email</label>
+								<div class="col-sm-10">
+									<input type="email" class="form-control" id="email" placeholder="Email"
+										required="required" formControlName="email" readonly>
+									<div *ngIf="editAccountForm.get('email').touched">
+										<div *ngIf="editAccountForm.hasError('required', ['email'])">
+											<small class="text-danger"> This field is required.</small>
+										</div>
+										<div *ngIf="editAccountForm.hasError('pattern', ['email'])">
+											<small class="text-danger"> Please enter a valid email address.</small>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="password" class="col-sm-2 control-label">
+									Password</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="password" placeholder="Password"
+										required="required" formControlName="password">
+									<div *ngIf="editAccountForm.get('password').touched">
+										<div *ngIf="editAccountForm.hasError('required', ['password'])">
+											<small class="text-danger"> This field is required.</small>
+										</div>
+										<div *ngIf="editAccountForm.hasError('pattern', ['password'])">
+											<small class="text-danger"> Your password does not meet complexity
+												requirements.</small>
+										</div>
 
-				<div class="feed-back-form">
-					<form action="#" method="get">
-						<span>User Details</span>
-						<input type="text" placeholder="Username" name="firstname" required="required" />
-						<input type="text" placeholder="Fullname" name="firstname" required="required" />
-						<input type="email" placeholder="Email" name="email" required="required" />
-						<input type="tel" placeholder="Phone No" name="phoneno" required="required" />
-						<span>Is there anything you would like to tell us?</span>
-						<textarea onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}"
-							required="">Message...</textarea>
-						<input type="submit" value="Send Feedback">
-					</form>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="indentity" class="col-sm-2 control-label">
+									Identity Card</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="indentity" placeholder="Identity Card"
+										required="required" formControlName="identityCard">
+									<div *ngIf="editAccountForm.get('identityCard').touched">
+										<div *ngIf="editAccountForm.hasError('required', ['identityCard'])">
+											<small class="text-danger"> This field is required.</small>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="address" class="col-sm-2 control-label">
+									Address</label>
+								<div class="col-sm-10">
+									<textarea class="form-control" name="address" id="address" placeholder="address"
+										cols="30" rows="10" formControlName="address"></textarea>
+									<div *ngIf="editAccountForm.get('address').touched">
+										<div *ngIf="editAccountForm.hasError('required', ['address'])">
+											<small class="text-danger"> This field is required.</small>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- <div class="form-group">
+									<label for="dob" class="col-sm-2 control-label">
+										Date of Birth</label>
+									<div class="col-sm-10">
+										<input class="form-control" type="date" name="dob" id="dob" formControlName="dob">
+									</div>
+								</div> -->
+							<div class="row">
+								<div class="col-sm-2">
+								</div>
+								<div class="col-sm-10">
+									<button type="submit" class="submit btn btn-primary btn-sm">
+										Save &amp; Continue</button>
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>

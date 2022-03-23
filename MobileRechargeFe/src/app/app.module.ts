@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CalendarModule} from 'primeng/calendar';
 import { HomeComponent } from './components/home/home.component';
 import { MainComponent } from './main.component';
 import { PrepaidComponent } from './components/prepaid/prepaid.component';
@@ -19,6 +20,11 @@ import { LoginComponent } from './components/account/login.component';
 import { RegisterComponent } from './components/account/register.component';
 import { PayComponent } from './components/pay/pay.component';
 import { EditComponent } from './components/account/edit.component';
+import { AccountService } from './services/account.service';
+import { ActiveComponent } from './components/account/active.component';
+import { SuccessComponent } from './components/account/success.component';
+import { ForgotComponent } from './components/account/forgot.component';
+import { ChangePassComponent } from './components/account/changepass.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,11 @@ import { EditComponent } from './components/account/edit.component';
     LoginComponent,
     RegisterComponent,
     PayComponent,
-    EditComponent
+    EditComponent,
+    ActiveComponent,
+    SuccessComponent,
+    ForgotComponent,
+    ChangePassComponent
   ],
   imports: [
     BrowserModule,
@@ -45,8 +55,11 @@ import { EditComponent } from './components/account/edit.component';
     AdminModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    CalendarModule
   ],
-  providers: [],
+  providers: [
+    AccountService
+  ],
   bootstrap: [MainComponent]
 })
 export class AppModule { }

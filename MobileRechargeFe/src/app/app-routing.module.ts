@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './components/aboutus/aboutus.component';
+import { ActiveComponent } from './components/account/active.component';
+import { ChangePassComponent } from './components/account/changepass.component';
 import { EditComponent } from './components/account/edit.component';
+import { ForgotComponent } from './components/account/forgot.component';
 import { LoginComponent } from './components/account/login.component';
 import { RegisterComponent } from './components/account/register.component';
+import { SuccessComponent } from './components/account/success.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { HomeComponent } from './components/home/home.component';
@@ -25,6 +29,10 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'pay', component: PayComponent },
   { path: 'edit', component: EditComponent },
+  { path: 'active', component: ActiveComponent },
+  { path: 'success', component: SuccessComponent },
+  { path: 'forgot', component: ForgotComponent },
+  { path: 'changepass', component: ChangePassComponent },
 ];
 
 @NgModule({

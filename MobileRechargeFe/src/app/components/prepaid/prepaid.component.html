@@ -23,12 +23,12 @@
         <div class="tab-grids">
             <div id="tab1" class="tab-grid">
                 <div class="login-form">
-                    <form method="post" [formGroup]="addRechargeHistoryForm" (ngSubmit)="createRechargeHistory()">
+                    <form method="post" id="signup" [formGroup]="addRechargeHistoryForm" (ngSubmit)="createRechargeHistory()">
                         <ol>
                             <li>
                                 <h4>Enter your mobile number</h4>
-                                <input type="tel" id="tel" name="tel" pattern="\d{10}" placeholder="Enter Mobile Number"
-                                    required="required">
+                                <input type="tel" pattern="\d{10}" placeholder="Enter Mobile Number"
+                                    required="required" formControlName="phone">
                                 <p class="validation01">
                                     <span class="invalid">Please enter a valid mobile
                                         number</span>
@@ -44,7 +44,7 @@
                                                 <div>
                                                     <label class="touch">                                                        
                                                         <input type="radio" ng-model="TopupPrice"
-                                                            value="10000" class="ng-pristine ng-untouched ng-valid" formControlName="rechargeId" value={{normalrecharge.id}}>{{normalrecharge.price}}
+                                                            value="10000" class="ng-pristine ng-untouched ng-valid" formControlName="rechargeId" value={{normalrecharge.id}}>{{normalrecharge.name}}
                                                         <span class="checkbox-custom"></span>
                                                     </label>                                                    
                                                 </div>
@@ -53,9 +53,10 @@
                                                     <div>Receive</div>
                                                     <div>{{normalrecharge.minutes}} minutes</div>
                                                     <div>{{normalrecharge.data}} GB</div>                                                    
-                                                </div>
-                                                <script>console.log(normalrecharge.id)</script>
-                                                <input type="hidden" value={{normalrecharge.id}} formControlName="rechargeId">                                                 
+                                                </div>  
+                                                <div class="product-info-row">
+                                                    <div>Price: {{normalrecharge.price}}</div>
+                                                </div>                                   
                                             </div>
                                         </li>
                                     </ul>
@@ -70,7 +71,7 @@
                                                 <div>
                                                     <label class="touch">
                                                         <input type="radio" ng-model="TopupPrice"
-                                                            value="10000" class="ng-pristine ng-untouched ng-valid" formControlName="rechargeId" value={{specialrecharge.id}}>{{specialrecharge.price}}
+                                                            value="10000" class="ng-pristine ng-untouched ng-valid" formControlName="rechargeId" value={{specialrecharge.id}}>{{specialrecharge.name}}
                                                         <span class="checkbox-custom"></span>
                                                     </label>
                                                 </div>
@@ -79,6 +80,9 @@
                                                     <div>Receive</div>
                                                     <div>{{specialrecharge.minutes}} minutes</div>
                                                     <div>{{specialrecharge.data}} GB</div>
+                                                </div>
+                                                <div class="product-info-row">
+                                                    <div>Price: {{specialrecharge.price}}</div>
                                                 </div>
                                             </div>
                                         </li>

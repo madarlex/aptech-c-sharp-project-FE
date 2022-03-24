@@ -6,7 +6,7 @@ import { Account } from "../entities/account.entity";
 
 @Injectable()
 export class AccountService {
-    private BASE_URL: string = 'http://localhost:5136/account/';
+    private BASE_URL: string = 'http://localhost:5136/api/account/';
     constructor(
         private httpClient: HttpClient
         //Khai bao doi tuong de lay duoc API

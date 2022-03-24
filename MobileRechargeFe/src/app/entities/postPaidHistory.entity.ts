@@ -1,6 +1,6 @@
-export class RechargeHistory {
+export class PostPaidHistory {
     id: number;
-    rechargeId: number;
+    postPaidId: number;
     accountId: number;
     code: string;
     description: string;

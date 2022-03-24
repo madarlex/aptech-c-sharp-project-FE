@@ -32,8 +32,8 @@ export class RechargeService {
         return await lastValueFrom(value);
     }
 
-    async updateRechargeHistory(code: number) {
-        var value = this.httpClient.put(this.BASE_URL + 'updateRechargeHistory/' + code, NaN);
+    async updateRechargeHistory(id: number) {
+        var value = this.httpClient.put(this.BASE_URL + 'updateRechargeHistory/' + id, NaN);
         return await lastValueFrom(value);
     }
 }

@@ -6,5 +6,5 @@ export class Recharge {
     description: string;
     name: string;
     price: number;
-    rechargeTypeId: number;    
+    rechargeTypeId: number;
 }

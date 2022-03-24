@@ -17,6 +17,7 @@ export class PrepaidComponent implements OnInit {
   choosenPrice: number;
   choosenRechargeId: number;
   addRechargeHistoryForm: FormGroup;
+  accountId = localStorage.getItem('accountId');
 
 
   constructor(
@@ -46,13 +47,15 @@ export class PrepaidComponent implements OnInit {
 
     this.addRechargeHistoryForm = this.formBuilder.group({
       rechargeId: 4,
-      accountId: 2,
+      accountId: this.accountId,
       code: "",
       description: "",
       status: 0,
-      date: new Date()
+      date: new Date(),
+      phone: ""
     });
 
+    console.log(this.accountId);
   }
 
   createRechargeHistory() {
@@ -60,6 +63,7 @@ export class PrepaidComponent implements OnInit {
     newRechargeHistory.code = (Math.floor(100000 + Math.random() * 900000)).toString();
     newRechargeHistory.status = 0;    
     console.log(newRechargeHistory.rechargeId);
+    console.log(newRechargeHistory.phone);
     localStorage.setItem("newRechargeHistory", JSON.stringify(newRechargeHistory));
     this.rechargeService.createRechargeHistory(newRechargeHistory).then(res => {
       console.log(res);

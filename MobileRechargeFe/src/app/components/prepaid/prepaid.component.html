@@ -14,7 +14,6 @@
 
 <div class="resp-tab-content hor_1 resp-tab-content-active" aria-labelledby="hor_1_tab_item-0" style="display:block">
     <div class="tabs-box">
-
         <img src="assets/images/mobile.png" class="w3ls-mobile" alt="" data-pin-nopin="true">
         <ul class="tabs-menu">
             <li><a href="#tab1"><label class="radio"><input type="radio" name="radio"
@@ -24,12 +23,12 @@
         <div class="tab-grids">
             <div id="tab1" class="tab-grid">
                 <div class="login-form">
-                    <form action="pay.html" method="post" id="signup">
+                    <form method="post" id="signup" [formGroup]="addRechargeHistoryForm" (ngSubmit)="createRechargeHistory()">
                         <ol>
                             <li>
                                 <h4>Enter your mobile number</h4>
-                                <input type="tel" id="tel" name="tel" pattern="\d{10}" placeholder="Enter Mobile Number"
-                                    required="required">
+                                <input type="tel" pattern="\d{10}" placeholder="Enter Mobile Number"
+                                    required="required" formControlName="phone">
                                 <p class="validation01">
                                     <span class="invalid">Please enter a valid mobile
                                         number</span>
@@ -38,78 +37,26 @@
                             </li>
                             <li>
                                 <div class="agileits-select">
-                                    <h4>Choose denomination </h4>
+                                    <h4>Choose Normal Recharge </h4>
                                     <ul class="form-group-radio grid4" tabindex="2">
-                                        <li class="package">
+                                        <li class="package" *ngFor="let normalrecharge of normalRecharges">                                         
                                             <div class="radio radio-btn">
-                                                <label class="touch">
-                                                    <input type="radio" ng-model="TopupPrice" name="TopupPrice"
-                                                        value="10000" class="ng-pristine ng-untouched ng-valid">10.000
-                                                    <span class="checkbox-custom"></span>
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li class="package">
-                                            <div class="radio radio-btn">
-                                                <label class="touch">
-                                                    <input type="radio" ng-model="TopupPrice" name="TopupPrice"
-                                                        value="20000" class="ng-pristine ng-untouched ng-valid">20.000
-                                                    <span class="checkbox-custom"></span>
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li class="package">
-                                            <div class="radio radio-btn">
-                                                <label class="touch">
-                                                    <input type="radio" ng-model="TopupPrice" name="TopupPrice"
-                                                        value="30000" class="ng-pristine ng-untouched ng-valid">30.000
-                                                    <span class="checkbox-custom"></span>
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li class="package">
-                                            <div class="radio radio-btn">
-                                                <label class="touch">
-                                                    <input type="radio" ng-model="TopupPrice" name="TopupPrice"
-                                                        value="40000" class="ng-pristine ng-untouched ng-valid">40.000
-                                                    <span class="checkbox-custom"></span>
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li class="package">
-                                            <div class="radio radio-btn">
-                                                <label class="touch">
-                                                    <input type="radio" ng-model="TopupPrice" name="TopupPrice"
-                                                        value="50000" class="ng-pristine ng-untouched ng-valid">50.000
-                                                    <span class="checkbox-custom"></span>
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li class="package">
-                                            <div class="radio radio-btn">
-                                                <label class="touch">
-                                                    <input type="radio" ng-model="TopupPrice" name="TopupPrice"
-                                                        value="60000" class="ng-pristine ng-untouched ng-valid">60.000
-                                                    <span class="checkbox-custom"></span>
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li class="package">
-                                            <div class="radio radio-btn">
-                                                <label class="touch">
-                                                    <input type="radio" ng-model="TopupPrice" name="TopupPrice"
-                                                        value="70000" class="ng-pristine ng-untouched ng-valid">70.000
-                                                    <span class="checkbox-custom"></span>
-                                                </label>
-                                            </div>
-                                        </li>
-                                        <li class="package">
-                                            <div class="radio radio-btn">
-                                                <label class="touch">
-                                                    <input type="radio" ng-model="TopupPrice" name="TopupPrice"
-                                                        value="80000" class="ng-pristine ng-untouched ng-valid">80.000
-                                                    <span class="checkbox-custom"></span>
-                                                </label>
+                                                <div>
+                                                    <label class="touch">                                                        
+                                                        <input type="radio" ng-model="TopupPrice"
+                                                            value="10000" class="ng-pristine ng-untouched ng-valid" formControlName="rechargeId" value={{normalrecharge.id}}>{{normalrecharge.name}}
+                                                        <span class="checkbox-custom"></span>
+                                                    </label>                                                    
+                                                </div>
+                                                <br>
+                                                <div class="product-info-row">
+                                                    <div>Receive</div>
+                                                    <div>{{normalrecharge.minutes}} minutes</div>
+                                                    <div>{{normalrecharge.data}} GB</div>                                                    
+                                                </div>  
+                                                <div class="product-info-row">
+                                                    <div>Price: {{normalrecharge.price}}</div>
+                                                </div>                                   
                                             </div>
                                         </li>
                                     </ul>
@@ -117,425 +64,37 @@
                             </li>
                             <li>
                                 <div class="agileits-select">
-                                    <div class="btn-group bootstrap-select show-tick">
-                                        <button type="button" class="btn dropdown-toggle btn-default"
-                                            data-toggle="dropdown" title="Select Circle"><span
-                                                class="filter-option pull-left">Select
-                                                Circle
-                                            </span>&nbsp;<span class="bs-caret"><span
-                                                    class="caret"></span></span></button>
-                                        <div class="dropdown-menu open">
-                                            <div class="bs-searchbox"><input type="text" class="form-control"
-                                                    autocomplete="off"></div>
-                                            <ul class="dropdown-menu inner" role="menu">
-                                                <li data-original-index="0" class="selected"><a tabindex="0" class=""
-                                                        data-tokens="Select Circle"><span class="text">Select
-                                                            Circle
-                                                        </span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="1"><a tabindex="0" class=""
-                                                        data-tokens="Chennai"><span class="text">Chennai</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="2"><a tabindex="0" class=""
-                                                        data-tokens="Delhi NCR"><span class="text">Delhi
-                                                            NCR</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="3"><a tabindex="0" class=""
-                                                        data-tokens="Kolkata"><span class="text">Kolkata</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="4"><a tabindex="0" class=""
-                                                        data-tokens="Mumbai"><span class="text">Mumbai</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="5"><a tabindex="0" class=""
-                                                        data-tokens="Maharashtra &amp; Goa"><span
-                                                            class="text">Maharashtra &amp;
-                                                            Goa</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="6"><a tabindex="0" class=""
-                                                        data-tokens="Assam"><span class="text">Assam</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="7"><a tabindex="0" class=""
-                                                        data-tokens="Bihar &amp; Jharkhand"><span class="text">Bihar
-                                                            &amp;
-                                                            Jharkhand</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="8"><a tabindex="0" class=""
-                                                        data-tokens="Gujarat"><span class="text">Gujarat</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="9"><a tabindex="0" class=""
-                                                        data-tokens="Haryana"><span class="text">Haryana</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="10"><a tabindex="0" class=""
-                                                        data-tokens="Himachal Pradesh"><span class="text">Himachal
-                                                            Pradesh
-                                                        </span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="11"><a tabindex="0" class=""
-                                                        data-tokens="Jummu &amp; Kashmir"><span class="text">Jummu
-                                                            &amp; Kashmir
-                                                        </span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="12"><a tabindex="0" class=""
-                                                        data-tokens="Karnataka"><span class="text">Karnataka</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="13"><a tabindex="0" class=""
-                                                        data-tokens="Kerala"><span class="text">Kerala</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="14"><a tabindex="0" class=""
-                                                        data-tokens="Andhra Pradesh"><span class="text">Andhra
-                                                            Pradesh
-                                                        </span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="15"><a tabindex="0" class=""
-                                                        data-tokens="MP &amp; Chattisgarh"><span class="text">MP
-                                                            &amp; Chattisgarh
-                                                        </span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="16"><a tabindex="0" class=""
-                                                        data-tokens="North East"><span class="text">North
-                                                            East</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="17"><a tabindex="0" class=""
-                                                        data-tokens="Orissa"><span class="text">Orissa</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="18"><a tabindex="0" class=""
-                                                        data-tokens="Punjab"><span class="text">Punjab</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="19"><a tabindex="0" class=""
-                                                        data-tokens="Rajasthan"><span class="text">Rajasthan</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="20"><a tabindex="0" class=""
-                                                        data-tokens="Tamilnadu"><span class="text">Tamilnadu</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="21"><a tabindex="0" class=""
-                                                        data-tokens="UP East"><span class="text">UP
-                                                            East</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="22"><a tabindex="0" class=""
-                                                        data-tokens="UP West &amp; Utterkhand"><span class="text">UP
-                                                            West &amp;
-                                                            Utterkhand</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="23"><a tabindex="0" class=""
-                                                        data-tokens="West Bengal"><span class="text">West
-                                                            Bengal</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    <h4>Choose Special Recharge </h4>
+                                    <ul class="form-group-radio grid4" tabindex="2">
+                                        <li class="package" *ngFor="let specialrecharge of specialRecharges">                                            
+                                            <div class="radio radio-btn">
+                                                <div>
+                                                    <label class="touch">
+                                                        <input type="radio" ng-model="TopupPrice"
+                                                            value="10000" class="ng-pristine ng-untouched ng-valid" formControlName="rechargeId" value={{specialrecharge.id}}>{{specialrecharge.name}}
+                                                        <span class="checkbox-custom"></span>
+                                                    </label>
+                                                </div>
+                                                <br>
+                                                <div class="product-info-row">
+                                                    <div>Receive</div>
+                                                    <div>{{specialrecharge.minutes}} minutes</div>
+                                                    <div>{{specialrecharge.data}} GB</div>
+                                                </div>
+                                                <div class="product-info-row">
+                                                    <div>Price: {{specialrecharge.price}}</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </li>
-                            <li>
-                                <input type="submit" class="submit" value="Recharge Now">
-                            </li>
-                        </ol>
-                    </form>
-
-                </div>
-
-            </div>
-            <div id="tab2" class="tab-grid" style="display: none;">
-                <div class="login-form">
-                    <form action="pay.html" method="post" id="signup">
-                        <ol>
-                            <li>
-                                <h4>Enter your mobile number</h4>
-                                <input type="tel" id="tel" name="tel" pattern="\d{10}" placeholder="Enter Mobile Number"
-                                    required="">
-                                <p class="validation01">
-                                    <span class="invalid">Please enter a valid mobile
-                                        number</span>
-                                    <span class="valid">That's what we wanted!</span>
-                                </p>
-                            </li>
-                            <li>
-                                <div class="agileits-select">
-                                    <div class="btn-group bootstrap-select show-tick"><button type="button"
-                                            class="btn dropdown-toggle btn-default" data-toggle="dropdown"
-                                            title="Select Operator"><span class="filter-option pull-left">Select
-                                                Operator
-                                            </span>&nbsp;<span class="bs-caret"><span
-                                                    class="caret"></span></span></button>
-                                        <div class="dropdown-menu open">
-                                            <div class="bs-searchbox"><input type="text" class="form-control"
-                                                    autocomplete="off"></div>
-                                            <ul class="dropdown-menu inner" role="menu">
-                                                <li data-original-index="0" class="selected"><a tabindex="0" class=""
-                                                        data-tokens="Select Operator"><span class="text">Select
-                                                            Operator
-                                                        </span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="1"><a tabindex="0" class=""
-                                                        data-tokens="Airtel"><span class="text">Airtel</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="2"><a tabindex="0" class=""
-                                                        data-tokens="Aircel"><span class="text">Aircel</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="3"><a tabindex="0" class=""
-                                                        data-tokens="BSNL"><span class="text">BSNL</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="4"><a tabindex="0" class=""
-                                                        data-tokens="Tata Docomo"><span class="text">Tata
-                                                            Docomo</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="5"><a tabindex="0" class=""
-                                                        data-tokens="Reliance GSM"><span class="text">Reliance
-                                                            GSM</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="6"><a tabindex="0" class=""
-                                                        data-tokens="Reliance CDMA"><span class="text">Reliance CDMA
-                                                        </span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="7"><a tabindex="0" class=""
-                                                        data-tokens="Telenor"><span class="text">Telenor</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="8"><a tabindex="0" class=""
-                                                        data-tokens="Jio"><span class="text">Jio</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="9"><a tabindex="0" class=""
-                                                        data-tokens="Vodafone"><span class="text">Vodafone</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="10"><a tabindex="0" class=""
-                                                        data-tokens="Idea"><span class="text">Idea</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="11"><a tabindex="0" class=""
-                                                        data-tokens="MTS"><span class="text">MTS</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                            </ul>
-                                        </div><select class="selectpicker show-tick" data-live-search="true"
-                                            tabindex="-98">
-                                            <option data-tokens="Select Operator">Select Operator
-                                            </option>
-                                            <option data-tokens="Airtel">Airtel</option>
-                                            <option data-tokens="Aircel">Aircel</option>
-                                            <option data-tokens="BSNL">BSNL</option>
-                                            <option data-tokens="Tata Docomo">Tata Docomo</option>
-                                            <option data-tokens="Reliance GSM">Reliance GSM</option>
-                                            <option data-tokens="Reliance CDMA">Reliance CDMA
-                                            </option>
-                                            <option data-tokens="Telenor">Telenor</option>
-                                            <option data-tokens="Jio">Jio</option>
-                                            <option data-tokens="Vodafone">Vodafone</option>
-                                            <option data-tokens="Idea">Idea</option>
-                                            <option data-tokens="MTS">MTS</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="agileits-select">
-                                    <div class="btn-group bootstrap-select show-tick"><button type="button"
-                                            class="btn dropdown-toggle btn-default" data-toggle="dropdown"
-                                            title="Select Circle"><span class="filter-option pull-left">Select
-                                                Circle
-                                            </span>&nbsp;<span class="bs-caret"><span
-                                                    class="caret"></span></span></button>
-                                        <div class="dropdown-menu open">
-                                            <div class="bs-searchbox"><input type="text" class="form-control"
-                                                    autocomplete="off"></div>
-                                            <ul class="dropdown-menu inner" role="menu">
-                                                <li data-original-index="0" class="selected"><a tabindex="0" class=""
-                                                         data-tokens="Select Circle"><span class="text">Select
-                                                            Circle
-                                                        </span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="1"><a tabindex="0" class=""
-                                                        data-tokens="Chennai"><span class="text">Chennai</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="2"><a tabindex="0" class=""
-                                                        data-tokens="Delhi NCR"><span class="text">Delhi
-                                                            NCR</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="3"><a tabindex="0" class=""
-                                                        data-tokens="Kolkata"><span class="text">Kolkata</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="4"><a tabindex="0" class=""
-                                                        data-tokens="Mumbai"><span class="text">Mumbai</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="5"><a tabindex="0" class=""
-                                                        data-tokens="Maharashtra &amp; Goa"><span
-                                                            class="text">Maharashtra &amp;
-                                                            Goa</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="6"><a tabindex="0" class=""
-                                                        data-tokens="Assam"><span class="text">Assam</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="7"><a tabindex="0" class=""
-                                                        data-tokens="Bihar &amp; Jharkhand"><span class="text">Bihar
-                                                            &amp;
-                                                            Jharkhand</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="8"><a tabindex="0" class=""
-                                                        data-tokens="Gujarat"><span class="text">Gujarat</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="9"><a tabindex="0" class=""
-                                                        data-tokens="Haryana"><span class="text">Haryana</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="10"><a tabindex="0" class=""
-                                                        data-tokens="Himachal Pradesh"><span class="text">Himachal
-                                                            Pradesh
-                                                        </span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="11"><a tabindex="0" class=""
-                                                        data-tokens="Jummu &amp; Kashmir"><span class="text">Jummu
-                                                            &amp; Kashmir
-                                                        </span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="12"><a tabindex="0" class=""
-                                                        data-tokens="Karnataka"><span class="text">Karnataka</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="13"><a tabindex="0" class=""
-                                                        data-tokens="Kerala"><span class="text">Kerala</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="14"><a tabindex="0" class=""
-                                                        data-tokens="Andhra Pradesh"><span class="text">Andhra
-                                                            Pradesh
-                                                        </span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="15"><a tabindex="0" class=""
-                                                        data-tokens="MP &amp; Chattisgarh"><span class="text">MP
-                                                            &amp; Chattisgarh
-                                                        </span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="16"><a tabindex="0" class=""
-                                                        data-tokens="North East"><span class="text">North
-                                                            East</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="17"><a tabindex="0" class=""
-                                                        data-tokens="Orissa"><span class="text">Orissa</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="18"><a tabindex="0" class=""
-                                                        data-tokens="Punjab"><span class="text">Punjab</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="19"><a tabindex="0" class=""
-                                                        data-tokens="Rajasthan"><span class="text">Rajasthan</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="20"><a tabindex="0" class=""
-                                                        data-tokens="Tamilnadu"><span class="text">Tamilnadu</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="21"><a tabindex="0" class=""
-                                                        data-tokens="UP East"><span class="text">UP East</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="22"><a tabindex="0" class=""
-                                                        data-tokens="UP West &amp; Utterkhand"><span class="text">UP
-                                                            West &amp;
-                                                            Utterkhand</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                                <li data-original-index="23"><a tabindex="0" class=""
-                                                        data-tokens="West Bengal"><span class="text">West
-                                                            Bengal</span><span
-                                                            class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                </li>
-                                            </ul>
-                                        </div><select class="selectpicker show-tick" data-live-search="true"
-                                            required="required" tabindex="-98">
-                                            <option data-tokens="Select Circle">Select Circle
-                                            </option>
-                                            <option data-tokens="Chennai">Chennai</option>
-                                            <option data-tokens="Delhi NCR">Delhi NCR</option>
-                                            <option data-tokens="Kolkata">Kolkata</option>
-                                            <option data-tokens="Mumbai">Mumbai</option>
-                                            <option data-tokens="Maharashtra &amp; Goa">Maharashtra &amp;
-                                                Goa</option>
-                                            <option data-tokens="Assam">Assam</option>
-                                            <option data-tokens="Bihar &amp; Jharkhand">Bihar &amp;
-                                                Jharkhand</option>
-                                            <option data-tokens="Gujarat">Gujarat</option>
-                                            <option data-tokens="Haryana">Haryana</option>
-                                            <option data-tokens="Himachal Pradesh">Himachal Pradesh
-                                            </option>
-                                            <option data-tokens="Jummu &amp; Kashmir">Jummu &amp; Kashmir
-                                            </option>
-                                            <option data-tokens="Karnataka">Karnataka</option>
-                                            <option data-tokens="Kerala">Kerala</option>
-                                            <option data-tokens="Andhra Pradesh">Andhra Pradesh
-                                            </option>
-                                            <option data-tokens="MP &amp; Chattisgarh">MP &amp; Chattisgarh
-                                            </option>
-                                            <option data-tokens="North East">North East</option>
-                                            <option data-tokens="Orissa">Orissa</option>
-                                            <option data-tokens="Punjab">Punjab</option>
-                                            <option data-tokens="Rajasthan">Rajasthan</option>
-                                            <option data-tokens="Tamilnadu">Tamilnadu</option>
-                                            <option data-tokens="UP East">UP East</option>
-                                            <option data-tokens="UP West &amp; Utterkhand">UP West &amp;
-                                                Utterkhand</option>
-                                            <option data-tokens="West Bengal">West Bengal</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="mobile-right ">
-                                    <h4>How Much To Pay?</h4>
-                                    <div class="mobile-rchge">
-                                        <input type="text" placeholder="Enter amount" name="amount" required="required">
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </li>
-                            <li>
-                                <input type="submit" class="submit" value="Pay bill">
-                            </li>
+                            <br>
+                             <div>
+                                 <a>
+                                    <input type="submit" class="submit" value="Recharge Now">
+                                 </a>                               
+                             </div>
                         </ol>
                     </form>
                 </div>

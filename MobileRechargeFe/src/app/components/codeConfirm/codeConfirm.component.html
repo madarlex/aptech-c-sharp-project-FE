@@ -1,0 +1,47 @@
+<div class="agileits-inner-banner">
+
+</div>
+<!-- //innerbanner -->
+
+<!-- breadcrumbs -->
+<div class="w3layouts-breadcrumbs text-center">
+    <div class="container">
+        <span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> /
+            <span>Confirm</span></span>
+    </div>
+</div>
+<!-- //breadcrumbs -->
+
+<div class="resp-tab-content hor_1 resp-tab-content-active" aria-labelledby="hor_1_tab_item-0" style="display:block">
+    <div class="tabs-box">
+        <img src="assets/images/mobile.png" class="w3ls-mobile" alt="" data-pin-nopin="true">
+        <ul class="tabs-menu">
+            <li><a href="#tab1"><label class="radio"><input type="radio" name="radio"
+                            checked=""><i></i>Confirm</label></a></li>
+        </ul>
+        <div class="clearfix"> </div>
+        <div class="tab-grids">
+            <div id="tab1" class="tab-grid">
+                <div class="login-form">
+                    <form method="post">
+                        <ol>
+                            <li>
+                                <h4>Enter Confirmation Code</h4>
+                                <input type="text" placeholder="Enter Confirmation Code"
+                                    required="required" [(ngModel)]="updatedCode" [ngModelOptions]="{standalone: true}">
+                                <p class="validation01">
+                                    <span class="invalid">Please enter a confirmation code</span>
+                                </p>
+                            </li>
+                            <br>
+                             <div>
+                                <input type="submit" class="submit" value="Confirm" (click)="updatePostPaidHistory(); updateRechargeHistory()">                            
+                             </div>
+                        </ol>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>

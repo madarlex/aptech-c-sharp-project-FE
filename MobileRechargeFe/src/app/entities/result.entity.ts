@@ -1,3 +1,3 @@
-export class Result{
-    result: boolean
+export class Result {
+    result!: boolean;
 }

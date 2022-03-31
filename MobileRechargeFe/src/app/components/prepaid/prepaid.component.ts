@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -51,7 +52,7 @@ export class PrepaidComponent implements OnInit {
       code: "",
       description: "",
       status: 0,
-      date: new Date(),
+      date: "",
       phone: ""
     });
 
@@ -61,7 +62,8 @@ export class PrepaidComponent implements OnInit {
   createRechargeHistory() {
     var newRechargeHistory: RechargeHistory = this.addRechargeHistoryForm.value;
     newRechargeHistory.code = (Math.floor(100000 + Math.random() * 900000)).toString();
-    newRechargeHistory.status = 0;    
+    newRechargeHistory.status = 0;
+    newRechargeHistory.date = formatDate(new Date, 'dd/MM/yyyy', 'en-US');    
     console.log(newRechargeHistory.rechargeId);
     console.log(newRechargeHistory.phone);
     localStorage.setItem("newRechargeHistory", JSON.stringify(newRechargeHistory));

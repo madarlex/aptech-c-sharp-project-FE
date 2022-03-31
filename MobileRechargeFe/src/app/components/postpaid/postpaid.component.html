@@ -27,9 +27,15 @@
                     <form method="post" id="signup" [formGroup]="addPostPaidHistoryForm" (ngSubmit)="createPostPaidHistory()">
                         <ol>
                             <li>
-                                <h4>Enter your mobile number</h4>
+                                <div class="" style="margin-bottom: 10px;">
+                                    <img src="https://www.vban.vn/Resources/images/ic_dark/ic-01.svg" alt=""
+                                        style="max-width: 50px;">
+                                    <h4 class="text-service" style="display: inline-block;">Enter your mobile number
+                                    </h4>
+                                    <span class="lightred" style="color: red; font-size: 12px;">(*)</span>
+                                </div>
                                 <input type="tel" pattern="\d{10}" placeholder="Enter Mobile Number"
-                                    required="required" formControlName="phone">
+                                    required="required" formControlName="phone" class="form-control" style="max-width: 40%;">
                                 <p class="validation01">
                                     <span class="invalid">Please enter a valid mobile
                                         number</span>
@@ -38,14 +44,22 @@
                             </li>
                             <li>
                                 <div class="agileits-select">
-                                    <h4>Choose denomination </h4>
+                                    <div>
+                                        <img src="https://www.vban.vn/Resources/images/ic_dark/ic-43.png" alt=""
+                                            style="max-width: 45px;">
+                                        <h4 class="text-service" style="display: inline-block; margin-left: 4px;">
+                                            Choose denomination </h4>
+                                    </div>
                                     <ul class="form-group-radio grid4" tabindex="2">
-                                        <li class="package" *ngFor="let postPaid of postPaids">                                         
+                                        <li class="package" style="margin-right: 10px;"  *ngFor="let postPaid of postPaids">                                         
                                             <div class="radio radio-btn">
                                                 <div>
                                                     <label class="touch">                                                        
                                                         <input type="radio" ng-model="TopupPrice"
-                                                            value="10000" class="ng-pristine ng-untouched ng-valid" formControlName="postPaidId" value={{postPaid.id}}>{{postPaid.name}}
+                                                            value="10000" class="ng-pristine ng-untouched ng-valid" formControlName="postPaidId" value={{postPaid.id}}>
+                                                            <label for="" class="label-recharge" style="	margin-top: 4px;
+                                                            font-weight: bold;
+                                                            padding-left: 0px;">{{postPaid.name}}</label>
                                                         <span class="checkbox-custom"></span>
                                                     </label>                                                    
                                                 </div>

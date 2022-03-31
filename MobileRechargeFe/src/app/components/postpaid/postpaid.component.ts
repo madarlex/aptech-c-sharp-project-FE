@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -36,7 +37,7 @@ export class PostPaidComponent implements OnInit {
       code: "",
       description: "",
       status: 0,
-      date: new Date(), 
+      date: "", 
       phone: ""
     });
   }
@@ -45,6 +46,7 @@ export class PostPaidComponent implements OnInit {
     var newPostPaidHistory: PostPaidHistory = this.addPostPaidHistoryForm.value;
     newPostPaidHistory.code = (Math.floor(100000 + Math.random() * 900000)).toString();
     newPostPaidHistory.status = 0;    
+    newPostPaidHistory.date = formatDate(new Date, 'dd/MM/yyyy', 'en-US');   
     console.log(newPostPaidHistory.postPaidId);
     console.log(newPostPaidHistory.phone);
     localStorage.setItem("newPostPaidHistory", JSON.stringify(newPostPaidHistory));

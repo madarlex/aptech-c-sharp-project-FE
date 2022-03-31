@@ -5,6 +5,6 @@ export class RechargeHistory {
     code: string;
     description: string;
     status: number;
-    date: Date; 
+    date: string; 
     phone: string;
 }

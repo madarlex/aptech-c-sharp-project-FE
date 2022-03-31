@@ -23,9 +23,8 @@ export class ChangePassComponent implements OnInit {
         var re: Result = res as Result;
         if (re.result) {
           this.router.navigate(['/success']);
-          console.log(this.password);
         } else {
-          console.log("Failed");
+          alert("Incorrect confirmation code");
         }
       },
       err => {

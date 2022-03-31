@@ -23,12 +23,19 @@
         <div class="tab-grids">
             <div id="tab1" class="tab-grid">
                 <div class="login-form">
-                    <form method="post" id="signup" [formGroup]="addRechargeHistoryForm" (ngSubmit)="createRechargeHistory()">
+                    <form method="post" id="signup" [formGroup]="addRechargeHistoryForm"
+                        (ngSubmit)="createRechargeHistory()">
                         <ol>
                             <li>
-                                <h4>Enter your mobile number</h4>
-                                <input type="tel" pattern="\d{10}" placeholder="Enter Mobile Number"
-                                    required="required" formControlName="phone">
+                                <div class="" style="margin-bottom: 10px;">
+                                    <img src="https://www.vban.vn/Resources/images/ic_dark/ic-01.svg" alt=""
+                                        style="max-width: 50px;">
+                                    <h4 class="text-service" style="display: inline-block;">Enter your mobile number
+                                    </h4>
+                                    <span class="lightred" style="color: red; font-size: 12px;">(*)</span>
+                                </div>
+                                <input type="tel" pattern="\d{10}" placeholder="Enter Mobile Number" required="required"
+                                    formControlName="phone" class="form-control" style="max-width: 40%;">
                                 <p class="validation01">
                                     <span class="invalid">Please enter a valid mobile
                                         number</span>
@@ -37,26 +44,34 @@
                             </li>
                             <li>
                                 <div class="agileits-select">
-                                    <h4>Choose Normal Recharge </h4>
+                                    <div>
+                                        <img src="https://www.vban.vn/Resources/images/ic_dark/ic-43.png" alt=""
+                                            style="max-width: 45px;">
+                                        <h4 class="text-service" style="display: inline-block; margin-left: 4px;">Choose
+                                            Normal Recharge </h4>
+                                    </div>
                                     <ul class="form-group-radio grid4" tabindex="2">
-                                        <li class="package" *ngFor="let normalrecharge of normalRecharges">                                         
+                                        <li style="margin-right: 10px;" class="package"
+                                            *ngFor="let normalrecharge of normalRecharges">
                                             <div class="radio radio-btn">
                                                 <div>
-                                                    <label class="touch">                                                        
-                                                        <input type="radio" ng-model="TopupPrice"
-                                                            value="10000" class="ng-pristine ng-untouched ng-valid" formControlName="rechargeId" value={{normalrecharge.id}}>{{normalrecharge.name}}
+                                                    <label class="touch">
+                                                        <input type="radio" ng-model="TopupPrice" value="10000"
+                                                            class="ng-pristine ng-untouched ng-valid"
+                                                            formControlName="rechargeId"
+                                                            value={{normalrecharge.id}}>
+                                                            <label for="" class="label-recharge" style="	margin-top: 4px;
+                                                            font-weight: bold;
+                                                            padding-left: 0px;">{{normalrecharge.name}}</label>
                                                         <span class="checkbox-custom"></span>
-                                                    </label>                                                    
+                                                    </label>
                                                 </div>
-                                                <br>
                                                 <div class="product-info-row">
-                                                    <div>Receive</div>
                                                     <div>{{normalrecharge.minutes}} minutes</div>
-                                                    <div>{{normalrecharge.data}} GB</div>                                                    
-                                                </div>  
-                                                <div class="product-info-row">
+                                                    <div>{{normalrecharge.data}} GB</div>
                                                     <div>Price: {{normalrecharge.price}}</div>
-                                                </div>                                   
+                                                </div>
+
                                             </div>
                                         </li>
                                     </ul>
@@ -64,24 +79,31 @@
                             </li>
                             <li>
                                 <div class="agileits-select">
-                                    <h4>Choose Special Recharge </h4>
+                                    <div>
+                                        <img src="https://www.vban.vn/Resources/images/ic_dark/ic-43.png" alt=""
+                                            style="max-width: 45px;">
+                                        <h4 class="text-service" style="display: inline-block; margin-left: 4px;">Choose
+                                            Special Recharge </h4>
+                                    </div>
                                     <ul class="form-group-radio grid4" tabindex="2">
-                                        <li class="package" *ngFor="let specialrecharge of specialRecharges">                                            
+                                        <li style="margin-right: 10px;" class="package"
+                                            *ngFor="let specialrecharge of specialRecharges">
                                             <div class="radio radio-btn">
                                                 <div>
                                                     <label class="touch">
-                                                        <input type="radio" ng-model="TopupPrice"
-                                                            value="10000" class="ng-pristine ng-untouched ng-valid" formControlName="rechargeId" value={{specialrecharge.id}}>{{specialrecharge.name}}
+                                                        <input type="radio" ng-model="TopupPrice" value="10000"
+                                                            class="ng-pristine ng-untouched ng-valid"
+                                                            formControlName="rechargeId"
+                                                            value={{specialrecharge.id}}>
+                                                            <label for="" class="label-recharge" style="	margin-top: 4px;
+                                                            font-weight: bold;
+                                                            padding-left: 0px;">{{specialrecharge.name}}</label>
                                                         <span class="checkbox-custom"></span>
                                                     </label>
                                                 </div>
-                                                <br>
                                                 <div class="product-info-row">
-                                                    <div>Receive</div>
                                                     <div>{{specialrecharge.minutes}} minutes</div>
                                                     <div>{{specialrecharge.data}} GB</div>
-                                                </div>
-                                                <div class="product-info-row">
                                                     <div>Price: {{specialrecharge.price}}</div>
                                                 </div>
                                             </div>
@@ -90,11 +112,11 @@
                                 </div>
                             </li>
                             <br>
-                             <div>
-                                 <a>
+                            <div>
+                                <a>
                                     <input type="submit" class="submit" value="Recharge Now">
-                                 </a>                               
-                             </div>
+                                </a>
+                            </div>
                         </ol>
                     </form>
                 </div>

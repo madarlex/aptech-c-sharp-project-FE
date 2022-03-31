@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { PostpaidService } from 'src/app/admin/services/postpaid.service';
-import { Postpaid } from 'src/app/entities/postpaid.entity';
+import { PostPaid } from 'src/app/entities/postpaid.entity';
 import { CreatePostpaidComponent } from './create-postpaid/create-postpaid.component';
 
 @Component({
@@ -13,8 +13,8 @@ import { CreatePostpaidComponent } from './create-postpaid/create-postpaid.compo
   styleUrls: ['./postpaid.component.css'],
 })
 export class PostpaidComponent implements OnInit {
-  dataSource: MatTableDataSource<Postpaid> = new MatTableDataSource<Postpaid>();
-  postpaids: Postpaid[] = [];
+  dataSource: MatTableDataSource<PostPaid> = new MatTableDataSource<PostPaid>();
+  postpaids: PostPaid[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   displayedColumn: string[] = ['id', 'status', 'description', 'name', 'price'];
@@ -31,8 +31,8 @@ export class PostpaidComponent implements OnInit {
   loadTable() {
     this.postpaidService.getPostpaids().then(
       (success) => {
-        this.postpaids = success as Postpaid[];
-        this.dataSource = new MatTableDataSource<Postpaid>(this.postpaids);
+        this.postpaids = success as PostPaid[];
+        this.dataSource = new MatTableDataSource<PostPaid>(this.postpaids);
 
         if (this.paginator) {
           this.dataSource.paginator = this.paginator;

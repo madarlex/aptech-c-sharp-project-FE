@@ -49,10 +49,8 @@ export class CreateRechagreComponent implements OnInit {
                 description: this.recharge.description,
                 name: this.recharge.name,
                 price: this.recharge.price,
-                rechargeTypeId: this.recharge.rechargeType.id,
+                rechargeTypeId: this.recharge.rechargeTypeId,
               });
-              console.log(this.recharge);
-              console.log(this.recharge.rechareTypeId);
             },
             (err) => {
               console.log(err);

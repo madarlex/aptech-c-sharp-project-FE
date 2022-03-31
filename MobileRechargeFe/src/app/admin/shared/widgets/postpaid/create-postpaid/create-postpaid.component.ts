@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NotificationService } from 'src/app/admin/services/notification.service';
 import { PostpaidService } from 'src/app/admin/services/postpaid.service';
-import { Postpaid } from 'src/app/entities/postpaid.entity';
+import { PostPaid } from 'src/app/entities/postpaid.entity';
 
 @Component({
   selector: 'app-create-postpaid',
@@ -12,7 +12,7 @@ import { Postpaid } from 'src/app/entities/postpaid.entity';
 })
 export class CreatePostpaidComponent implements OnInit {
   createForm: FormGroup = new FormGroup({});
-  postpaid: Postpaid;
+  postpaid: PostPaid;
   byPassHTMLString: string;
 
   constructor(
@@ -31,7 +31,7 @@ export class CreatePostpaidComponent implements OnInit {
     if (this.data) {
       this.postpaidService.getPostpaidById(this.data.id).then(
         (success) => {
-          this.postpaid = success as Postpaid;
+          this.postpaid = success as PostPaid;
           this.byPassHTMLString = this.postpaid.description;
           this.createForm = this.formBuilder.group({
             id: this.postpaid.id,
@@ -66,7 +66,7 @@ export class CreatePostpaidComponent implements OnInit {
 
   onSubmit() {
     if (this.createForm.valid) {
-      var createPostpaid: Postpaid = this.createForm.value;
+      var createPostpaid: PostPaid = this.createForm.value;
 
       if (!this.createForm.get('id').value) {
         createPostpaid.id = 0;

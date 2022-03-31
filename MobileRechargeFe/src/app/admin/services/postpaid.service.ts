@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
-import { Postpaid } from 'src/app/entities/postpaid.entity';
+import { PostPaid } from 'src/app/entities/postpaid.entity';
 
 @Injectable({
   providedIn: 'root',
@@ -20,12 +20,12 @@ export class PostpaidService {
     return await lastValueFrom(value);
   }
 
-  async create(postpaid: Postpaid) {
+  async create(postpaid: PostPaid) {
     var value = this.httpClient.post(this.BASE_URL + 'create', postpaid);
     return await lastValueFrom(value);
   }
 
-  async update(id: number, postpaid: Postpaid) {
+  async update(id: number, postpaid: PostPaid) {
     var value = this.httpClient.put(this.BASE_URL + 'update/' + id, postpaid);
     return await lastValueFrom(value);
   }

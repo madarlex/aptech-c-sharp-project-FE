@@ -1,5 +1,5 @@
 import { Account } from './account.entity';
-import { Postpaid } from './postpaid.entity';
+import { PostPaid } from './postpaid.entity';
 
 export class PostPaidHistory {
   id: number;
@@ -11,5 +11,5 @@ export class PostPaidHistory {
   date: string;
   phone: string;
   account: Account;
-  postpaid: Postpaid;
+  postpaid: PostPaid;
 }

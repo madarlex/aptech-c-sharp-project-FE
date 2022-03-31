@@ -27,6 +27,9 @@ import { RechargeService } from './services/recharge.service';
 import { CodeConfirmComponent } from './components/codeConfirm/codeConfirm.component';
 import { PostPaid } from './entities/postpaid.entity';
 import { PostPaidService } from './services/postpaid.service';
+import { MenuAccountComponent } from './components/menuaccount/menuaccount.component';
+import { SuccessfulFeedbackComponent } from './components/feedback/successfulfeedback.component';
+import { FeedbackService } from './services/feedback.service';
 
 import { MatButtonModule } from '@angular/material/button';
 import { AdminService } from './services/admin.service';
@@ -34,6 +37,8 @@ import { DefaultModule } from './admin/layouts/default/default.module';
 import { AdminModule } from './admin/admin.module';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +61,10 @@ import { BrowserModule } from '@angular/platform-browser';
     ChangePassComponent,
     CodeConfirmComponent,
     PostPaidComponent,
+    MenuAccountComponent,
+    SuccessfulFeedbackComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -71,8 +80,15 @@ import { BrowserModule } from '@angular/platform-browser';
     MatButtonModule,
     DefaultModule,
     RouterModule,
+    CalendarModule
   ],
-  providers: [AccountService, RechargeService, PostPaidService, AdminService],
+  providers: [
+    AccountService,
+    RechargeService,
+    PostPaidService,
+    FeedbackService,
+    AdminService
+  ],  
 
   bootstrap: [AppComponent],
 })

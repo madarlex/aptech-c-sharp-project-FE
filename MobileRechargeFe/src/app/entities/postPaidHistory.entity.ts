@@ -5,6 +5,6 @@ export class PostPaidHistory {
     code: string;
     description: string;
     status: number;
-    date: Date; 
+    date: string; 
     phone: string;
 }

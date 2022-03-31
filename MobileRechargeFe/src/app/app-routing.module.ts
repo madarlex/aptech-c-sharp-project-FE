@@ -12,6 +12,7 @@ import { SuccessComponent } from './components/account/success.component';
 import { CodeConfirmComponent } from './components/codeConfirm/codeConfirm.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
+import { SuccessfulFeedbackComponent } from './components/feedback/successfulfeedback.component';
 import { HomeComponent } from './components/home/home.component';
 import { PayComponent } from './components/pay/pay.component';
 import { PostPaidComponent } from './components/postpaid/postpaid.component';
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'forgot', component: ForgotComponent },
   { path: 'changepass', component: ChangePassComponent },
   { path: 'confirm', component: CodeConfirmComponent },
+  { path: 'successfulfeedback', component: SuccessfulFeedbackComponent },
 ];
 
 @NgModule({

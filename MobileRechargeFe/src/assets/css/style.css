@@ -5484,10 +5484,19 @@ abbr[title], abbr[data-original-title] {
     color: #434a54;
     padding: 15px 35px;
     font-weight: 500;
+	transition: all 0.3s ease;
+}
+
+.form-group-radio .package:hover{
+	transform: scale(1.1);
+	color: white !important;
+	background: #2188C9;
+	border-color: transparent;
 }
 
 .form-group-radio .touch{
 	font-weight: bold;
+	margin-bottom: 5px;
 }
 
 .nav-menu ul li{
@@ -5533,4 +5542,14 @@ li.service:hover .sub-menu{
 .sub-menu li {
 	margin-left: 0px!important;
 	padding-left: 0px!important;
+}
+
+.text-service{
+    color: #2b2b2b!important;
+    font-weight: 500 !important;
+	font-size: 15px !important;
+}
+
+.product-info-row{
+	font-size: 15px;
 }

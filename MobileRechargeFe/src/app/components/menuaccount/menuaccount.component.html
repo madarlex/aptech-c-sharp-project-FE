@@ -1,0 +1,29 @@
+<div *ngIf="login_status;else other_content" style="float: right;">
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true" style="margin-top: 14px;
+    outline: none;
+    background: none;
+    color: yellow;
+    border: none;
+    margin-left: 30px;
+    font-size: 17px;">
+    Account
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="left: 23%;">
+            <li><a [routerLink]="['/edit']">Edit Account</a></li>
+            <li><a (click)="onLogout()">Log Out</a></li>
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+
+<ng-template #other_content>
+<div class="w3layouts-login" style="display: flex;">
+    <a [routerLink]="['/login']"><i class="glyphicon glyphicon-user">
+        </i>Login/</a>
+    <a [routerLink]="['/register']">Register</a>
+</div>
+</ng-template>

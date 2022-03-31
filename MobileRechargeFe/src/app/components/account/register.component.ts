@@ -11,14 +11,12 @@ import { AccountService } from 'src/app/services/account.service';
 })
 export class RegisterComponent implements OnInit {
   addAccountForm: FormGroup;
-  date: string;
   constructor(
     private accountService: AccountService,
     private formBuilder: FormBuilder,
     private router: Router,
   ) { }
   ngOnInit() {
-    this.date = "";
     this.addAccountForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       address: ['', [Validators.required]],
@@ -28,20 +26,20 @@ export class RegisterComponent implements OnInit {
       identityCard: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.pattern('^((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})$')]],
       status: 0,
-      accountTypeId: 1,
-      dob: "12/02/2001",
+      accountTypeId: 2,
+      dob: ['', [Validators.required]],
     });
   }
   create() {
     var account: Account = this.addAccountForm.value;
-    // account.dob = formatDate(account.dob, 'dd/mm/yyyy', 'en-US')
+    account.dob = formatDate(account.dob, 'dd/MM/yyyy', 'en-US');
     this.accountService.create(account).then(
       res => {
         var re: Result = res as Result;
         if (re.result) {
           this.router.navigate(['/active']);
         } else {
-          console.log("Failed");
+          alert("This email has been used to register an account");
         }
       },
       err => {

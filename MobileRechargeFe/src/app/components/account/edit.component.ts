@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -20,18 +21,17 @@ export class EditComponent implements OnInit {
     this.accountService.edit(parseInt(accountId)).then(
       res => {
         this.account = res as Account;
-        console.log(this.account.phone)
         this.editAccountForm = this.formBuilder.group({
           id: this.account.id,
-          name:[this.account.name, [Validators.required]],
+          name: [this.account.name, [Validators.required]],
           address: [this.account.address, [Validators.required]],
           phone: [this.account.phone, [Validators.required, Validators.minLength(9), Validators.maxLength(10)]],
           email: [this.account.email, [Validators.required, Validators.pattern(/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/)]],
           gender: [this.account.gender, [Validators.required]],
           identityCard: this.account.identityCard,
           status: 1,
-          accountTypeId: 1,
-          dob: "11/08/2010",
+          accountTypeId: 2,
+          dob: [this.account.dob, [Validators.required]],
           password: ['', [Validators.required, Validators.pattern('^((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})$')]]
         });
       },
@@ -42,7 +42,9 @@ export class EditComponent implements OnInit {
   }
   save() {
     var account: Account = this.editAccountForm.value;
-    console.log(account);
+    if(typeof(account.dob) === 'object'){
+      account.dob = formatDate(account.dob, 'dd/MM/yyyy', 'en-US');
+    }
     this.accountService.update(account).then(
       res => {
         var re: Result = res as Result;

@@ -1,0 +1,68 @@
+<mat-toolbar>
+  <span>Account Information</span>
+  <span class="fill-remaining-space"></span>
+  <button
+    class="btn-dialog-close"
+    mat-stroked-button
+    (click)="onClose()"
+    tabindex="-1"
+    mat-dialog-close=""
+  >
+    <mat-icon>clear</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-dialog-content class="mat-typography">
+  <div class="form-group row">
+    <label for="name" class="col-sm-3 col-form-label">Name</label>
+    <div class="col-sm-9">{{account.id}}</div>
+  </div>
+  <div class="form-group row">
+    <label for="accountTypeId" class="col-sm-3 col-form-label"
+      >Account Type</label
+    >
+    <div class="col-sm-9">
+      {{account.accountTypeId == 1 ? "Admin" : "User"}}
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="address" class="col-sm-3 col-form-label">Address</label>
+    <div class="col-sm-9">{{account.address}}</div>
+  </div>
+  <div class="form-group row">
+    <label for="phone" class="col-sm-3 col-form-label">Phone</label>
+    <div class="col-sm-9">{{account.phone}}</div>
+  </div>
+  <div class="form-group row">
+    <label for="email" class="col-sm-3 col-form-label">Email</label>
+    <div class="col-sm-9">{{account.email}}</div>
+  </div>
+  <div class="form-group row">
+    <label for="gender" class="col-sm-3 col-form-label">Gender</label>
+    <div class="col-sm-9">{{account.gender ? "Male" : "Female"}}</div>
+  </div>
+  <div class="form-group row">
+    <label for="dob" class="col-sm-3 col-form-label">DOB</label>
+    <div class="col-sm-9">{{account.dob}}</div>
+  </div>
+  <div class="form-group row">
+    <label for="identityCard" class="col-sm-3 col-form-label"
+      >Identity Card</label
+    >
+    <div class="col-sm-9">{{account.identityCard}}</div>
+  </div>
+  <div class="form-group row">
+    <label for="status" class="col-sm-3 col-form-label">Status</label>
+    <div class="col-sm-9">{{account.status}}</div>
+  </div>
+  <div class="form-group row">
+    <label for="service" class="col-sm-3 col-form-label">Active Token</label>
+    <div class="col-sm-9">{{account.activeToken}}</div>
+  </div>
+  <div class="form-group row">
+    <label for="service" class="col-sm-3 col-form-label">Reset Token</label>
+    <div class="col-sm-9">{{account.resetToken}</div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close (click)="onClose()">Cancel</button>
+</mat-dialog-actions>

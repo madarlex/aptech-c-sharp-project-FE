@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminComponent } from './admin/admin.component';
 import { AboutUsComponent } from './components/aboutus/aboutus.component';
 import { ActiveComponent } from './components/account/active.component';
 import { ChangePassComponent } from './components/account/changepass.component';
@@ -16,6 +17,7 @@ import { PayComponent } from './components/pay/pay.component';
 import { PostPaidComponent } from './components/postpaid/postpaid.component';
 import { PrepaidComponent } from './components/prepaid/prepaid.component';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
+import { AdminService } from './services/admin.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,6 +41,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

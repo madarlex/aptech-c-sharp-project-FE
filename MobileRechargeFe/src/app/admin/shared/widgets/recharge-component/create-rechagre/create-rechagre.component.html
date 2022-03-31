@@ -1,0 +1,107 @@
+<mat-toolbar>
+  <span>{{
+    createForm.controls["id"].value ? "Modify Recharge" : "New Recharge"
+  }}</span>
+  <span class="fill-remaining-space"></span>
+  <button
+    class="btn-dialog-close"
+    mat-stroked-button
+    (click)="onClose()"
+    tabindex="-1"
+  >
+    <mat-icon>clear</mat-icon>
+  </button>
+</mat-toolbar>
+<form [formGroup]="createForm" class="normal-form" (submit)="onSubmit()">
+  <mat-grid-list cols="2" rowHeight="400px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="id" />
+        <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+          <input
+            formControlName="name"
+            matInput
+            placeholder="Name*"
+            maxlength="10"
+            #name
+          />
+          <mat-hint align="end">{{ name.value?.length || 0 }}/10</mat-hint>
+          <mat-error>This field is mandatory.</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" hintLabel="Number">
+          <input formControlName="minutes" matInput placeholder="Minutes" />
+          <mat-error>Invalid email address.</mat-error>
+        </mat-form-field>
+
+        <!-- <div class="NgxEditor__Wrapper">
+          <ngx-editor-menu [editor]="editor" [toolbar]="toolbar">
+          </ngx-editor-menu>
+          <ngx-editor
+            [editor]="editor"
+            [ngModel]="html"
+            [disabled]="false"
+            [placeholder]="'Type here...'"
+            height="300px"
+            minHeight="100px"
+          ></ngx-editor>
+        </div> -->
+        <mat-form-field appearance="fill">
+          <textarea
+            matInput
+            formControlName="description"
+            cols="30"
+            rows="8"
+            placeholder="Text"
+          ></textarea>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field appearance="fill" hintLabel="Number">
+          <input formControlName="data" matInput placeholder="Data*" />
+          <!-- <mat-error *ngIf="service.form.controls['mobile'].errors?.required"
+            >This field is mandatory.</mat-error
+          > -->
+          <!-- <mat-error *ngIf="service.form.controls['mobile'].errors?.minlength"
+            >Minimum 8 charactors needed.</mat-error
+          > -->
+        </mat-form-field>
+        <mat-form-field appearance="fill" hintLabel="Number">
+          <input formControlName="status" matInput placeholder="Status" />
+        </mat-form-field>
+        <mat-form-field appearance="fill" hintLabel="Number">
+          <input formControlName="price" matInput placeholder="Price" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <!-- <input
+            formControlName="rechargeTypeId"
+            matInput
+            placeholder="rechargeType"
+          /> -->
+          <mat-select
+            formControlName="rechargeTypeId"
+            placeholder="Recharege Type"
+          >
+            <ng-container *ngFor="let rechargeType of rechargeTypes">
+              <mat-option [value]="rechargeType.id">{{
+                rechargeType.name
+              }}</mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div class="button-row">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="createForm.invalid"
+    >
+      Submit
+    </button>
+    <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+  </div>
+</form>

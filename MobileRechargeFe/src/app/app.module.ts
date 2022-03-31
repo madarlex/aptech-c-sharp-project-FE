@@ -1,13 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { AdminModule } from './admin/admin.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CalendarModule} from 'primeng/calendar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'primeng/calendar';
 import { HomeComponent } from './components/home/home.component';
 import { MainComponent } from './main.component';
 import { PrepaidComponent } from './components/prepaid/prepaid.component';
@@ -30,6 +28,12 @@ import { CodeConfirmComponent } from './components/codeConfirm/codeConfirm.compo
 import { PostPaid } from './entities/postpaid.entity';
 import { PostPaidService } from './services/postpaid.service';
 
+import { MatButtonModule } from '@angular/material/button';
+import { AdminService } from './services/admin.service';
+import { DefaultModule } from './admin/layouts/default/default.module';
+import { AdminModule } from './admin/admin.module';
+import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -51,10 +55,11 @@ import { PostPaidService } from './services/postpaid.service';
     ForgotComponent,
     ChangePassComponent,
     CodeConfirmComponent,
-    PostPaidComponent
+    PostPaidComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -62,14 +67,13 @@ import { PostPaidService } from './services/postpaid.service';
     AdminModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    CalendarModule
+    CalendarModule,
+    MatButtonModule,
+    DefaultModule,
+    RouterModule,
   ],
-  providers: [
-    AccountService,
-    RechargeService,
-    PostPaidService
-  ],
+  providers: [AccountService, RechargeService, PostPaidService, AdminService],
 
-  bootstrap: [MainComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

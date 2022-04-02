@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Feedback } from 'src/app/entities/feedback.entity';
+import { FeedBack } from 'src/app/entities/feedback.entity';
 import { Result } from 'src/app/entities/result.entity';
 import { FeedbackService } from 'src/app/services/feedback.service';
 
@@ -23,7 +23,7 @@ export class FeedbackComponent implements OnInit {
     });
   }
   create() {
-    var feedback: Feedback = this.addFeedbackForm.value;
+    var feedback: FeedBack = this.addFeedbackForm.value;
     this.feedbackService.create(feedback).then(
       res => {
         var re: Result = res as Result;

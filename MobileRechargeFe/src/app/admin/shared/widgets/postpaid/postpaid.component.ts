@@ -17,7 +17,7 @@ export class PostpaidComponent implements OnInit {
   postpaids: PostPaid[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  displayedColumn: string[] = ['id', 'status', 'description', 'name', 'price'];
+  displayedColumn: string[] = ['id', 'status', 'name', 'price'];
 
   constructor(
     private postpaidService: PostpaidService,

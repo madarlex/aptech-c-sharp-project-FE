@@ -8,7 +8,6 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PagesComponent } from './modules/pages/pages.component';
 import { PostsComponent } from './modules/posts/posts.component';
 import { RechargeComponent } from './modules/recharge/recharge.component';
-import { AboutusComponent } from './shared/widgets/aboutus/aboutus.component';
 import { PostpaidComponent } from './shared/widgets/postpaid/postpaid.component';
 import { RechargeHistoryComponent } from './shared/widgets/recharge-history/recharge-history.component';
 import { PostpaidHistoryComponent } from './shared/widgets/postpaid-history/postpaid-history.component';
@@ -24,7 +23,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            component: DashboardComponent,
+            component: PostsComponent,
           },
           {
             path: 'posts',
@@ -33,16 +32,6 @@ const routes: Routes = [
           {
             path: 'recharges',
             component: RechargeComponent,
-          },
-          {
-            path: 'pages',
-            component: PagesComponent,
-            children: [
-              {
-                path: 'aboutus',
-                component: AboutusComponent,
-              },
-            ],
           },
           {
             path: 'postpaid',

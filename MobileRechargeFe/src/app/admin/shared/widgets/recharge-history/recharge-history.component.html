@@ -5,16 +5,11 @@
 
 <div class="example-container mat-elevation-z8">
   <table matSort mat-table [dataSource]="dataSource">
-    <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-    <!-- Position Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell mat-sort-header="" *matHeaderCellDef>ID</th>
       <td mat-cell *matCellDef="let element">{{ element.id }}</td>
     </ng-container>
 
-    <!-- Name Column -->
     <ng-container matColumnDef="rechargeId">
       <th mat-header-cell *matHeaderCellDef>Recharge</th>
       <td mat-cell *matCellDef="let element">
@@ -22,13 +17,11 @@
       </td>
     </ng-container>
 
-    <!-- Weight Column -->
     <ng-container matColumnDef="account">
       <th mat-header-cell *matHeaderCellDef>Account</th>
       <td mat-cell *matCellDef="let element">{{ element.account.name }}</td>
     </ng-container>
 
-    <!-- Symbol Column -->
     <ng-container matColumnDef="code">
       <th mat-header-cell *matHeaderCellDef>Code</th>
       <td mat-cell *matCellDef="let element">{{ element.code }}</td>
@@ -45,7 +38,7 @@
     </ng-container>
 
     <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <th mat-header-cell mat-sort-header="" *matHeaderCellDef>Date</th>
       <td mat-cell *matCellDef="let element">{{ element.date }}</td>
     </ng-container>
 
@@ -53,15 +46,6 @@
       <th mat-header-cell mat-sort-header="" *matHeaderCellDef>Phone</th>
       <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
     </ng-container>
-
-    <!-- <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef="let row">
-        <button mat-raised-button color="primary" (click)="viewHistory(row.id)">
-          <mat-icon>more</mat-icon>
-        </button>
-      </td>
-    </ng-container> -->
 
     <tr mat-header-row *matHeaderRowDef="displayedColumn; sticky: true"></tr>
     <tr

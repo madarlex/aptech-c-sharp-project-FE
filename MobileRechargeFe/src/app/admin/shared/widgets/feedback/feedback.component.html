@@ -34,32 +34,19 @@
 
     <ng-container matColumnDef="description">
       <th mat-header-cell *matHeaderCellDef>Description</th>
-      <!-- <td mat-cell *matCellDef="let element">{{ element.description }}</td> -->
       <td mat-cell *matCellDef="let row">
-        <button mat-raised-button color="primary">
+        <button
+          mat-raised-button
+          (click)="openEdit(row.description, row.name)"
+          color="primary"
+        >
           <mat-icon>description</mat-icon>
         </button>
       </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumn; sticky: true"></tr>
-    <tr
-      mat-row
-      (click)="openEdit(row.id)"
-      *matRowDef="let row; columns: displayedColumn"
-    ></tr>
-    <!-- <tr
-      mat-footer-row
-      *matFooterRowDef="['loading']"
-      [ngClass]="{ hide: dataSource != null }"
-    ></tr>
-    <tr
-      mat-footer-row
-      *matFooterRowDef="['noData']"
-      [ngClass]="{ hide: !(dataSource != null && dataSource.data.length == 0) }"
-    ></tr> -->
-
-    <!-- Row shown when there is no matching data -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumn"></tr>
     <tr class="mat-row" *matNoDataRow>
       <td class="mat-cell" colspan="4">
         No data matching the filter "{{ input.value }}"

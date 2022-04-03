@@ -13,6 +13,11 @@ snack-bar-container.warn {
   color: #fff;
 }
 
+snack-bar-container.success {
+  background-color: green;
+  color: #fff;
+}
+
 /* for dialong pop-up */
 .btn-dialog-close {
   width: 45px;

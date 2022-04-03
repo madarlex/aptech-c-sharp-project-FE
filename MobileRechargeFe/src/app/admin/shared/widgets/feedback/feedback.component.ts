@@ -57,14 +57,15 @@ export class FeedbackComponent implements OnInit {
     }
   }
 
-  openEdit(id: number) {
+  openEdit(description: string, name: string) {
     this.matDialog
       .open(ViewFeedbackComponent, {
         autoFocus: true,
         disableClose: true,
         width: '60%',
         data: {
-          id: id,
+          description: description,
+          name: name,
         },
       })
       .afterClosed()

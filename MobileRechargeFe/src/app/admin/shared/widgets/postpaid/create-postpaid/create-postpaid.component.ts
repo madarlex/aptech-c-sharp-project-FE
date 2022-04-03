@@ -1,5 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NotificationService } from 'src/app/admin/services/notification.service';
 import { PostpaidService } from 'src/app/admin/services/postpaid.service';
@@ -50,18 +55,18 @@ export class CreatePostpaidComponent implements OnInit {
 
   initializeFormGroup() {
     this.createForm = this.formBuilder.group({
-      id: '',
-      status: '',
-      description: '',
-      name: '',
-      price: '',
+      id: new FormControl(null),
+      status: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
+      name: new FormControl('', Validators.required),
+      price: new FormControl('', Validators.required),
     });
   }
 
   onClear() {
     this.createForm.reset();
     this.initializeFormGroup();
-    this.notificationService.success('Submitted successfully');
+    this.notificationService.success('Clear successfully');
   }
 
   onSubmit() {

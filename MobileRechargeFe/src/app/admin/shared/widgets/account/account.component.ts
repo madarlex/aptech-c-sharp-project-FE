@@ -78,7 +78,6 @@ export class AccountComponent implements OnInit {
       autoFocus: true,
       disableClose: true,
       width: '40%',
-      height: '80%',
       data: {
         id: id,
       },
@@ -144,6 +143,6 @@ export class DialogContentExampleDialog implements OnInit {
   }
 
   onClose() {
-    this.notificationService.warn('! close successful');
+    this.notificationService.success('! close successful');
   }
 }

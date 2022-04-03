@@ -11,76 +11,45 @@
   </div>
 
   <mat-divider> </mat-divider>
-  <a mat-list-item [routerLink]="['/admin']" routerLinkActive="list-item-active"
-    >Dashboard</a
-  >
   <a
     mat-list-item
     [routerLink]="['/admin/posts']"
     routerLinkActive="list-item-active"
-    >Accounts</a
+    ><mat-icon>account_circle</mat-icon>Accounts</a
   >
   <a
     mat-list-item
     [routerLink]="['/admin/postpaid']"
     routerLinkActive="list-item-active"
-    >Postpaids</a
+    ><mat-icon>input</mat-icon>Postpaids</a
   >
   <a
     mat-list-item
     [routerLink]="['/admin/recharges']"
     routerLinkActive="list-item-active"
-    >Recharges</a
+    ><mat-icon>launch</mat-icon>Recharges</a
   >
   <a
     mat-list-item
     [routerLink]="['/admin/feedback']"
     routerLinkActive="list-item-active"
-    >Feedback</a
+    ><mat-icon>feedback</mat-icon>Feedback</a
   >
   <a
     mat-list-item
     [routerLink]="['/admin/postpaid-history']"
     routerLinkActive="list-item-active"
-    >Postpaid History</a
+    ><mat-icon>compare_arrows</mat-icon>Postpaid History</a
   >
   <a
     mat-list-item
     [routerLink]="['/admin/recharge-history']"
     routerLinkActive="list-item-active"
-    >Recharge History</a
-  >
-
-  <a
-    mat-list-item
-    [routerLink]="['/admin/pages']"
-    routerLinkActive="list-item-active"
-    >Pages</a
+    ><mat-icon>done_all</mat-icon>Recharge History</a
   >
   <!-- <mat-tree>
     <mat-tree-node> parent node </mat-tree-node>
     <mat-tree-node> -- child node1 </mat-tree-node>
     <mat-tree-node> -- child node2 </mat-tree-node>
   </mat-tree> -->
-  <h2 matSubheader>Pages</h2>
-  <mat-divider></mat-divider>
-  <h2 matSubheader>Tools</h2>
-
-  <a
-    mat-list-item
-    [routerLink]="['/contacts']"
-    routerLinkActive="list-item-active"
-  >
-    <mat-icon>import_contacts</mat-icon>
-    Contacts
-  </a>
-
-  <a
-    mat-list-item
-    [routerLink]="['/contacts']"
-    routerLinkActive="list-item-active"
-  >
-    <mat-icon>contact_phone</mat-icon>
-    Leads
-  </a>
 </mat-nav-list>

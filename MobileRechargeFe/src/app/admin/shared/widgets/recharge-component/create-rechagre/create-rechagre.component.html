@@ -17,35 +17,32 @@
     <mat-grid-tile>
       <div class="controles-container">
         <input type="hidden" formControlName="id" />
-        <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+        <mat-form-field hintLabel="Max 250 characters" appearance="fill">
           <input
             formControlName="name"
             matInput
             placeholder="Name*"
-            maxlength="10"
+            maxlength="250"
             #name
           />
-          <mat-hint align="end">{{ name.value?.length || 0 }}/10</mat-hint>
+          <mat-hint align="end">{{ name.value?.length || 0 }}/250</mat-hint>
           <mat-error>This field is mandatory.</mat-error>
         </mat-form-field>
-        <mat-form-field appearance="fill" hintLabel="Number">
-          <input formControlName="minutes" matInput placeholder="Minutes" />
-          <mat-error>Invalid email address.</mat-error>
+        <mat-form-field appearance="fill" hintLabel="Minutes">
+          <input
+            formControlName="minutes"
+            type="number"
+            matInput
+            placeholder="Minutes"
+          />
+          <mat-error *ngIf="createForm.controls['minutes'].errors?.['required']"
+            >This field is mandatory.</mat-error
+          >
+          <mat-error *ngIf="createForm.controls['minutes'].errors?.['number']"
+            >Not valid number!</mat-error
+          >
         </mat-form-field>
-
-        <!-- <div class="NgxEditor__Wrapper">
-          <ngx-editor-menu [editor]="editor" [toolbar]="toolbar">
-          </ngx-editor-menu>
-          <ngx-editor
-            [editor]="editor"
-            [ngModel]="html"
-            [disabled]="false"
-            [placeholder]="'Type here...'"
-            height="300px"
-            minHeight="100px"
-          ></ngx-editor>
-        </div> -->
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" hintLabel="Description">
           <textarea
             matInput
             formControlName="description"
@@ -58,27 +55,49 @@
     </mat-grid-tile>
     <mat-grid-tile>
       <div class="controles-container">
-        <mat-form-field appearance="fill" hintLabel="Number">
-          <input formControlName="data" matInput placeholder="Data*" />
-          <!-- <mat-error *ngIf="service.form.controls['mobile'].errors?.required"
-            >This field is mandatory.</mat-error
-          > -->
-          <!-- <mat-error *ngIf="service.form.controls['mobile'].errors?.minlength"
-            >Minimum 8 charactors needed.</mat-error
-          > -->
-        </mat-form-field>
-        <mat-form-field appearance="fill" hintLabel="Number">
-          <input formControlName="status" matInput placeholder="Status" />
-        </mat-form-field>
-        <mat-form-field appearance="fill" hintLabel="Number">
-          <input formControlName="price" matInput placeholder="Price" />
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <!-- <input
-            formControlName="rechargeTypeId"
+        <mat-form-field appearance="fill" hintLabel="Data">
+          <input
+            formControlName="data"
+            type="number"
             matInput
-            placeholder="rechargeType"
-          /> -->
+            placeholder="Data*"
+          />
+          <mat-error *ngIf="createForm.controls['data'].errors?.['required']"
+            >This field is mandatory.</mat-error
+          >
+          <mat-error *ngIf="createForm.controls['data'].errors?.['number']"
+            >Not valid number!</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="fill" hintLabel="Status">
+          <input
+            formControlName="status"
+            type="number"
+            matInput
+            placeholder="Status"
+          />
+          <mat-error *ngIf="createForm.controls['status'].errors?.['required']"
+            >This field is mandatory.</mat-error
+          >
+          <mat-error *ngIf="createForm.controls['status'].errors?.['number']"
+            >Not valid number!</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="fill" hintLabel="Price">
+          <input
+            formControlName="price"
+            type="number"
+            matInput
+            placeholder="Price"
+          />
+          <mat-error *ngIf="createForm.controls['price'].errors?.['required']"
+            >This field is mandatory.</mat-error
+          >
+          <mat-error *ngIf="createForm.controls['price'].errors?.['number']"
+            >Not valid number!</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="fill" hintLabel="Recharge Type">
           <mat-select
             formControlName="rechargeTypeId"
             placeholder="Recharege Type"

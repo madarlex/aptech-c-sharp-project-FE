@@ -20,7 +20,6 @@ import { RechargeTypeService } from '../../services/recharge-type.service';
 import { PagesComponent } from '../../modules/pages/pages.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AboutUsService } from '../../services/aboutus.service';
 import { PostpaidService } from '../../services/postpaid.service';
 import { FeedbackService } from '../../services/feedback.service';
 
@@ -51,7 +50,6 @@ import { FeedbackService } from '../../services/feedback.service';
     NotificationService,
     RechargeService,
     RechargeTypeService,
-    AboutUsService,
     PostpaidService,
     FeedbackService,
   ],

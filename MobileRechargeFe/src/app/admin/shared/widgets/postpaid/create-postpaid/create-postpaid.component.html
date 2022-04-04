@@ -16,50 +16,55 @@
   <mat-grid-list cols="2" rowHeight="600px">
     <div class="controles-container">
       <input type="hidden" formControlName="id" />
-      <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+      <mat-form-field hintLabel="Max 250 characters" appearance="fill">
         <input
           formControlName="name"
           matInput
           placeholder="Name*"
-          maxlength="10"
+          maxlength="250"
           #name
         />
-        <mat-hint align="end">{{ name.value?.length || 0 }}/10</mat-hint>
+        <mat-hint align="end">{{ name.value?.length || 0 }}/250</mat-hint>
         <mat-error>This field is mandatory.</mat-error>
       </mat-form-field>
-
-      <!-- <div class="NgxEditor__Wrapper">
-          <ngx-editor-menu [editor]="editor" [toolbar]="toolbar">
-          </ngx-editor-menu>
-          <ngx-editor
-            [editor]="editor"
-            [ngModel]="html"
-            [disabled]="false"
-            [placeholder]="'Type here...'"
-            height="300px"
-            minHeight="100px"
-          ></ngx-editor>
-        </div> -->
-      <!-- <mat-form-field appearance="fill">
-          <textarea
-            matInput
-            formControlName="description"
-            cols="30"
-            rows="8"
-            placeholder="Text"
-          ></textarea>
-        </mat-form-field> -->
-      <quill-editor
-        formControlName="description"
-        [styles]="{ height: '200px' }"
-        placeholder="Description..."
-      ></quill-editor>
-
-      <mat-form-field appearance="fill" hintLabel="Number">
-        <input formControlName="status" matInput placeholder="Status" />
+      <mat-form-field appearance="fill" hintLabel="Price">
+        <input
+          formControlName="price"
+          type="number"
+          matInput
+          placeholder="Price"
+        />
+        <mat-error *ngIf="createForm.controls['price'].errors?.['required']"
+          >This field is mandatory.</mat-error
+        >
+        <mat-error *ngIf="createForm.controls['price'].errors?.['nubmer']"
+          >Invalid value number!</mat-error
+        >
       </mat-form-field>
-      <mat-form-field appearance="fill" hintLabel="Number">
-        <input formControlName="price" matInput placeholder="Price" />
+
+      <mat-form-field appearance="fill" hintLabel="Status">
+        <input
+          formControlName="status"
+          type="number"
+          matInput
+          placeholder="Status"
+        />
+        <mat-error *ngIf="createForm.controls['status'].errors?.['required']"
+          >This field is mandatory.</mat-error
+        >
+        <mat-error *ngIf="createForm.controls['status'].errors?.['number']"
+          >Invalid number value!</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <textarea
+          matInput
+          formControlName="description"
+          cols="30"
+          rows="8"
+          placeholder="Description"
+        ></textarea>
       </mat-form-field>
       <div class="button-row">
         <button
@@ -74,10 +79,6 @@
           Clear
         </button>
       </div>
-      <!--
-      <div class="ql-container ql-snow" style="border-width: 0">
-        <div class="ql-editor" [innerHTML]="byPassHTMLString"></div>
-      </div> -->
     </div>
   </mat-grid-list>
 </form>

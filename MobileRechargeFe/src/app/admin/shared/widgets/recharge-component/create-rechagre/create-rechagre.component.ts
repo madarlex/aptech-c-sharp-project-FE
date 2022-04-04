@@ -1,5 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormControlDirective,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NotificationService } from 'src/app/admin/services/notification.service';
 import { RechargeTypeService } from 'src/app/admin/services/recharge-type.service';
@@ -17,6 +23,7 @@ export class CreateRechagreComponent implements OnInit {
   recharge: Recharge;
   selected: number;
   rechargeTypes: RechargeType[] = [];
+  edit: boolean = false;
 
   constructor(
     private rechargeService: RechargeService,
@@ -34,6 +41,7 @@ export class CreateRechagreComponent implements OnInit {
 
   form() {
     if (this.data) {
+      this.edit = true;
       this.rechargeService.getRechargeById(this.data.id).then(
         (success) => {
           this.recharge = success as Recharge;
@@ -66,13 +74,13 @@ export class CreateRechagreComponent implements OnInit {
 
   initializeFormGroup() {
     this.createForm = this.formBuilder.group({
-      id: '',
-      minutes: '',
-      data: '',
-      status: '',
-      description: '',
-      name: '',
-      price: '',
+      id: new FormControl(null),
+      minutes: new FormControl('', Validators.required),
+      data: new FormControl('', [Validators.required]),
+      status: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
+      name: new FormControl('', Validators.required),
+      price: new FormControl('', Validators.required),
       rechargeTypeId: 1,
     });
     this.initializeRechargeType();

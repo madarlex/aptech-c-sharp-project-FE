@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {RouterModule} from '@angular/router';
 import { Account } from 'src/app/entities/account.entity';
 import { AccountService } from 'src/app/services/account.service';
 

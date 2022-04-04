@@ -37,6 +37,8 @@ import { DefaultModule } from './admin/layouts/default/default.module';
 import { AdminModule } from './admin/admin.module';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -60,8 +62,14 @@ import { BrowserModule } from '@angular/platform-browser';
     CodeConfirmComponent,
     PostPaidComponent,
     MenuAccountComponent,
+<<<<<<< HEAD
     FeedbackComponent,
     SuccessfulFeedbackComponent
+=======
+    SuccessfulFeedbackComponent,
+    FooterComponent,
+    HeaderComponent
+>>>>>>> c12751129e1c745061b9d25c4812fc64122c170b
   ],
   imports: [
     BrowserModule,
@@ -78,6 +86,7 @@ import { BrowserModule } from '@angular/platform-browser';
     DefaultModule,
     RouterModule,
     CalendarModule
+<<<<<<< HEAD
   ],
   providers: [
     AccountService,
@@ -86,6 +95,16 @@ import { BrowserModule } from '@angular/platform-browser';
     FeedbackService,
     AdminService
   ],
+=======
+  ],
+  providers: [
+    AccountService,
+    RechargeService,
+    PostPaidService,
+    FeedbackService,
+    AdminService
+  ],  
+>>>>>>> c12751129e1c745061b9d25c4812fc64122c170b
 
   bootstrap: [AppComponent],
 })

@@ -26,6 +26,7 @@ export class MenuAccountComponent implements OnInit {
   }
   onLogout() {
     localStorage.removeItem('accountId');
+    localStorage.removeItem('accountType');
     this.router.navigate(['/login']);
   }
 }

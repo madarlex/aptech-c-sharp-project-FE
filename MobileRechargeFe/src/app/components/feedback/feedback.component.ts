@@ -8,7 +8,7 @@ import { FeedbackService } from 'src/app/services/feedback.service';
 @Component({
   templateUrl: './feedback.component.html',
 })
-export class FeedbackComponent implements OnInit {
+export class FeedBackComponent implements OnInit {
   addFeedbackForm: FormGroup;
   constructor(
     private feedbackService: FeedbackService,
@@ -28,6 +28,7 @@ export class FeedbackComponent implements OnInit {
       res => {
         var re: Result = res as Result;
         if (re.result) {
+          console.log(feedback);
           this.router.navigate(['/successfulfeedback']);
         } else {
           alert("You need to enter the full content");

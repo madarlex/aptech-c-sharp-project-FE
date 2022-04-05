@@ -12,7 +12,7 @@ import { PrepaidComponent } from './components/prepaid/prepaid.component';
 import { PostPaidComponent } from './components/postpaid/postpaid.component';
 import { AboutUsComponent } from './components/aboutus/aboutus.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { FeedbackComponent } from './components/feedback/feedback.component';
+import { FeedBackComponent } from './components/feedback/feedback.component';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { LoginComponent } from './components/account/login.component';
 import { RegisterComponent } from './components/account/register.component';
@@ -39,6 +39,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { HeaderComponent } from './components/header/header.component';
     PostPaidComponent,
     AboutUsComponent,
     ContactComponent,
-    FeedbackComponent,
+    FeedBackComponent,
     SitemapComponent,
     LoginComponent,
     RegisterComponent,
@@ -62,14 +63,9 @@ import { HeaderComponent } from './components/header/header.component';
     CodeConfirmComponent,
     PostPaidComponent,
     MenuAccountComponent,
-<<<<<<< HEAD
-    FeedbackComponent,
-    SuccessfulFeedbackComponent
-=======
     SuccessfulFeedbackComponent,
     FooterComponent,
     HeaderComponent
->>>>>>> c12751129e1c745061b9d25c4812fc64122c170b
   ],
   imports: [
     BrowserModule,
@@ -86,25 +82,15 @@ import { HeaderComponent } from './components/header/header.component';
     DefaultModule,
     RouterModule,
     CalendarModule
-<<<<<<< HEAD
   ],
   providers: [
     AccountService,
     RechargeService,
     PostPaidService,
     FeedbackService,
-    AdminService
-  ],
-=======
-  ],
-  providers: [
-    AccountService,
-    RechargeService,
-    PostPaidService,
-    FeedbackService,
-    AdminService
+    AdminService,
+    UserService
   ],  
->>>>>>> c12751129e1c745061b9d25c4812fc64122c170b
 
   bootstrap: [AppComponent],
 })

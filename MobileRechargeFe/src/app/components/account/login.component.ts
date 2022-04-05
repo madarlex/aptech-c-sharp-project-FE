@@ -23,7 +23,12 @@ export class LoginComponent implements OnInit {
         var re: Login = res as Login;
         if(re.accountId != null){
           localStorage.setItem('accountId', res.accountId);
-          this.router.navigateByUrl('/home');
+          localStorage.setItem('accountType', res.accountType);
+          if(res.accountType == 1){
+             this.router.navigateByUrl('/admin');
+          }else{
+             this.router.navigateByUrl('/home');
+          }
         }else{
           alert("Incorrect account or password");
         }

@@ -1,0 +1,84 @@
+<header>
+  <style>
+    #cart-wp {
+      position: relative;
+      cursor: pointer;
+    }
+
+    #cart-wp,
+    #cart-respon-wp {
+      position: relative;
+      display: block;
+      color: #fff;
+      padding: 20px 0px 20px 30px;
+    }
+
+    #cart-wp i,
+    #cart-respon-wp i {
+      font-size: 20px;
+      width: 37px;
+      height: 37px;
+      line-height: 33px;
+      text-align: center;
+      border: 2px solid #fff;
+      border-radius: 50%;
+    }
+
+    #cart-wp #num,
+    #cart-respon-wp #num {
+      position: absolute;
+      top: 10px;
+      right: -10px;
+      font-size: 16px;
+      font-family: "Roboto Medium";
+    }
+
+    #cart-wp #dropdown {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      top: 90px;
+      right: 0;
+      width: 250px;
+      min-height: 250px;
+      padding: 10px;
+      background: #fff;
+      border: 1px solid #e1e1e1;
+      transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+        #cart-wp:hover #dropdown {
+            top: 70px;
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+    <div class="container">
+        <!--logo-->
+        <div class="logo">
+            <h1><a href="index.html">Recharge Mobile</a></h1>
+        </div>
+        <!--//logo-->
+        <div class="nav-menu" style="float: left;">
+            <ul style="display: flex;">
+                <li><a [routerLink]="['/home']">Home</a></li>
+                <li class="service"><a [routerLink]="['/prepaid']">Service</a>
+                    <ul class="sub-menu">
+                        <li><a [routerLink]="['/prepaid']">Pre Paid</a></li>
+                        <li><a [routerLink]="['/postpaid']">Post Paid</a></li>
+                    </ul>
+                </li>
+                <li><a [routerLink]="['/aboutus']">About Us</a></li>
+                <li><a [routerLink]="['/contact']">Contact</a></li>
+                <li><a [routerLink]="['/feedback']">FeedBack</a></li>
+                <li><a [routerLink]="['/sitemap']">Site Map</a></li>
+            </ul>
+        </div>
+        <menu-account></menu-account>
+    </div>
+
+</header>

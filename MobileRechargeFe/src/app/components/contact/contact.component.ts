@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './contact.component.html',
 })
 export class ContactComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  constructor() { }
+  ngOnInit() {
   }
 }

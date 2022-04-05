@@ -23,7 +23,7 @@ export class ActiveComponent implements OnInit {
         if (re.result) {
           this.router.navigate(['/success']);
         } else {
-          console.log("Failed");
+          alert("Incorrect confirmation code");
         }
       },
       err => {
